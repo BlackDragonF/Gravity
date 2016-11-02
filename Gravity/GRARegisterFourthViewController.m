@@ -161,6 +161,7 @@ static NSString * restIdentifier = @"rest";
     [_signupParameters setObject:self.signatureText.text forKey:@"introduction"];
     [_signupParameters setObject:@"single" forKey:@"love_status"];
     [_signupParameters setObject:@"both" forKey:@"prefer_gender"];
+    [_signupParameters setObject:[NSNumber numberWithDouble: [NSDate date].timeIntervalSince1970] forKey:@"timestamp"];
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupURL andParameters:_signupParameters completionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
             NSLog(@"%@", responseJSON);

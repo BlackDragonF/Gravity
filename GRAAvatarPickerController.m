@@ -99,7 +99,7 @@ static NSString * cellIdentifier = @"photo";
 - (UILabel *)countLabel {
     if (!_countLabel) {
         _countLabel = [[UILabel alloc]init];
-        _countLabel.text = [NSString stringWithFormat:@"共%ld张照片", _fetchResults.count];
+        _countLabel.text = [NSString stringWithFormat:@"共%ld张照片", (long)_fetchResults.count];
         _countLabel.textColor = [UIColor grayColor];
         _countLabel.textAlignment = NSTextAlignmentCenter;
         _countLabel.font = [UIFont systemFontOfSize:15.0];

@@ -62,7 +62,7 @@ static NSString * uploadAvatarURL = @"/backend/api/misc/avatar";
 #pragma mark 具体功能
 - (void)uploadAvatar:(UIImage *)avatar forUser:(NSInteger)userID{
      _baseURL = [mainURL stringByAppendingString:uploadAvatarURL];
-    NSString * fileName = [NSString stringWithFormat:@"avatar-%ld-%ld.png", userID, (NSInteger)[[NSDate date] timeIntervalSince1970]];
+    NSString * fileName = [NSString stringWithFormat:@"avatar-%ld-%ld.png", (long)userID, (long)[[NSDate date] timeIntervalSince1970]];
     [self.sessionManager POST:_baseURL parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFormData:[fileName dataUsingEncoding:NSUTF8StringEncoding] name:@"filename"];
 //        [formData appendPartWithFileData:UIImagePNGRepresentation(avatar) name:@"file" fileName:fileName mimeType:@"image/png"];

@@ -19,6 +19,7 @@
 		10290B701D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B6F1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m */; };
 		10290B731D3116F700C70EE1 /* GRASystemWingmanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B721D3116F700C70EE1 /* GRASystemWingmanCell.m */; };
 		1030CEDE1D058F2F0026A86A /* GRALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030CEDD1D058F2F0026A86A /* GRALoginViewController.m */; };
+		1049BB2B1DCA120800D02A67 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 1049BB2A1DCA120800D02A67 /* Position.m */; };
 		1055CA9D1D2E145B000C10EE /* GRAHomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA981D2E145B000C10EE /* GRAHomePageCell.m */; };
 		1055CA9E1D2E145B000C10EE /* GRAHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA9A1D2E145B000C10EE /* GRAHomepageHeaderView.m */; };
 		1055CA9F1D2E145B000C10EE /* GRAHomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA9C1D2E145B000C10EE /* GRAHomepageViewController.m */; };
@@ -110,6 +111,8 @@
 		10290B721D3116F700C70EE1 /* GRASystemWingmanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASystemWingmanCell.m; sourceTree = "<group>"; };
 		1030CEDC1D058F2F0026A86A /* GRALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRALoginViewController.h; sourceTree = "<group>"; };
 		1030CEDD1D058F2F0026A86A /* GRALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRALoginViewController.m; sourceTree = "<group>"; };
+		1049BB291DCA120800D02A67 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Gravity/Position.h; sourceTree = "<group>"; };
+		1049BB2A1DCA120800D02A67 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Gravity/Position.m; sourceTree = "<group>"; };
 		1055CA971D2E145B000C10EE /* GRAHomePageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageCell.h; sourceTree = "<group>"; };
 		1055CA981D2E145B000C10EE /* GRAHomePageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAHomePageCell.m; sourceTree = "<group>"; };
 		1055CA991D2E145B000C10EE /* GRAHomePageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageHeaderView.h; sourceTree = "<group>"; };
@@ -370,6 +373,16 @@
 				100D55931D2A84780068B19E /* GRAPhotoCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		1049BB281DCA11DE00D02A67 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1049BB291DCA120800D02A67 /* Position.h */,
+				1049BB2A1DCA120800D02A67 /* Position.m */,
+			);
+			name = Database;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1055CA961D2E13EE000C10EE /* Homepage */ = {
@@ -744,6 +757,7 @@
 			children = (
 				10E852241D042C7500A97F42 /* AppDelegate.h */,
 				10E852251D042C7500A97F42 /* AppDelegate.m */,
+				1049BB281DCA11DE00D02A67 /* Database */,
 				10C4FAA31D07D7690083A312 /* Location */,
 				105BC4901D06E8EC00FDD8AC /* Network */,
 				100D558D1D2A84640068B19E /* Avatar */,
@@ -1070,6 +1084,7 @@
 				10C4FAA21D07D72E0083A312 /* GRALocationManager.m in Sources */,
 				1055CAA61D2E3788000C10EE /* GRABasicInformationViewController.m in Sources */,
 				10956F921D361816007AD449 /* GRABlockSameClassView.m in Sources */,
+				1049BB2B1DCA120800D02A67 /* Position.m in Sources */,
 				105BC4941D071F9900FDD8AC /* GRARegisterFirstViewController.m in Sources */,
 				1089BD0E1D32715000487582 /* GRAInviteFriendsSideView.m in Sources */,
 				10290B6D1D3116BB00C70EE1 /* GRASystemWingmanViewController.m in Sources */,

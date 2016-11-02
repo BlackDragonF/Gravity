@@ -70,14 +70,14 @@
 - (void)setMeeting:(NSInteger)meeting {
     _meeting = meeting;
     _baseAttributedString = [[NSMutableAttributedString alloc]initWithString:@"相遇次"];
-    [_baseAttributedString insertAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _meeting] attributes:@{NSForegroundColorAttributeName:[UIColor backgroundRedColor]}] atIndex:2];
+    [_baseAttributedString insertAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", (long)_meeting] attributes:@{NSForegroundColorAttributeName:[UIColor backgroundRedColor]}] atIndex:2];
     [self.titleLabel setAttributedText:[_baseAttributedString copy]];
 }
 
 - (void)setMeters:(NSInteger)meters {
     _meters = meters;
     _baseAttributedString = [[NSMutableAttributedString alloc]initWithString:@"曾经你和TA只相距米"];
-    [_baseAttributedString insertAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", _meters] attributes:@{NSForegroundColorAttributeName:[UIColor backgroundRedColor]}] atIndex:9];
+    [_baseAttributedString insertAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld", (long)_meters] attributes:@{NSForegroundColorAttributeName:[UIColor backgroundRedColor]}] atIndex:9];
     [self.subtitleLabel setAttributedText:[_baseAttributedString copy]];
 }
 #pragma mark 懒加载方法群

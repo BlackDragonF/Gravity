@@ -99,7 +99,7 @@
         _signatureView.autocorrectionType = UITextAutocorrectionTypeNo;
         _signatureView.backgroundColor = [UIColor transparentWhiteColor];
         _signatureView.characterUpdate = ^(NSInteger leftCount) {
-            weakSelf.hintLabel.text = [NSString stringWithFormat:@"可输入%ld个字", leftCount];
+            weakSelf.hintLabel.text = [NSString stringWithFormat:@"可输入%ld个字", (long)leftCount];
         };
         [self.view addSubview:_signatureView];
     }

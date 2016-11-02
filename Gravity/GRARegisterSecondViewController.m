@@ -139,7 +139,7 @@ typedef NS_ENUM(NSInteger, GRALocationVerificationResult) {
     CLLocationCoordinate2D convertedCoordinate = userLocation.location.coordinate;
     CLLocation * location = [[CLLocation alloc]initWithLatitude:userLocation.location.coordinate.latitude longitude:userLocation.location.coordinate.longitude];
     [[GRALocationManager sharedManager] calculateAreaNumber:location];
-    [[GRALocationManager sharedManager] placemarkWithLocation:location];
+    [[GRALocationManager sharedManager] placemarkWithLocation:location andAreaNumber:[GRALocationManager sharedManager].area_num];
     [_signupParameters setObject:[NSNumber numberWithInteger: [GRALocationManager sharedManager].area_num] forKey:@"area_num"];
     [_signupParameters setObject:[GRALocationManager sharedManager].place forKey:@"location_name"];
     _verificationResult = [self verifyRegionWithCoordinate:convertedCoordinate];

@@ -23,5 +23,5 @@ typedef NS_ENUM(NSInteger, GRALocationMode) {
 + (instancetype)sharedManager;
 
 - (NSInteger)calculateAreaNumber:(CLLocation *)location;
-- (void)placemarkWithLocation:(CLLocation *) location;
+- (void)placemarkWithLocation:(CLLocation *) location andAreaNumber:(NSInteger)area_num;
 @end

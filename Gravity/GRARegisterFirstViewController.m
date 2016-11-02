@@ -150,9 +150,9 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
         [self.resendButton setAttributedTitle:[[NSAttributedString alloc]initWithString:@"重新发送" attributes:_resendButtonAttributedTitle] forState:UIControlStateNormal];
         self.resendButton.userInteractionEnabled = YES;
     } else {
-        self.resendButton.titleLabel.text = [NSString stringWithFormat:@"重新发送(%lds)", _timeCount];
+        self.resendButton.titleLabel.text = [NSString stringWithFormat:@"重新发送(%lds)", (long)_timeCount];
         [UIView performWithoutAnimation:^{
-            [self.resendButton setAttributedTitle:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"重新发送(%lds)", _timeCount] attributes:_resendButtonAttributedTitle] forState:UIControlStateNormal];
+            [self.resendButton setAttributedTitle:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"重新发送(%lds)", (long)_timeCount] attributes:_resendButtonAttributedTitle] forState:UIControlStateNormal];
             [self.resendButton.layer layoutIfNeeded];
         }];
     }

@@ -34,7 +34,7 @@
 - (instancetype)initWithLucky:(NSInteger)lucky {
     if (self = [super init]) {
         _lucky = lucky;
-        self.valueLabel.text = [NSString stringWithFormat:@"%ld%%", _lucky];
+        self.valueLabel.text = [NSString stringWithFormat:@"%ld%%", (long)_lucky];
         [self addConstraints];
         [self updateLuckyShape];
     }
@@ -70,7 +70,7 @@
 #pragma mark set方法群
 - (void)setLucky:(NSInteger)lucky {
     _lucky = lucky;
-    self.valueLabel.text = [NSString stringWithFormat:@"%ld%%", _lucky];
+    self.valueLabel.text = [NSString stringWithFormat:@"%ld%%", (long)_lucky];
     [self updateLuckyShape];
 }
 #pragma mark 懒加载方法群

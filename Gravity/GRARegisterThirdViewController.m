@@ -256,7 +256,7 @@ static NSString * basicInformationIdentifier = @"basic";
         _manButton.backgroundColor = [UIColor defaultButtonColor];
         _womanButton.backgroundColor = [UIColor backgroundRedColor];
     }
-    NSLog(@"%ld", _gender);
+    NSLog(@"%ld", (long)_gender);
 }
 #pragma mark 懒加载方法群
 

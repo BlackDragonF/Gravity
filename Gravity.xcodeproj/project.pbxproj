@@ -1,0 +1,1340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100D55941D2A84780068B19E /* GRAAvatarEditerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D558F1D2A84780068B19E /* GRAAvatarEditerController.m */; };
+		100D55951D2A84780068B19E /* GRAAvatarPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D55911D2A84780068B19E /* GRAAvatarPickerController.m */; };
+		100D55961D2A84780068B19E /* GRAPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D55931D2A84780068B19E /* GRAPhotoCell.m */; };
+		101048DF1D0C5A7F0084D6AB /* GRARegisterRestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 101048DE1D0C5A7F0084D6AB /* GRARegisterRestCell.m */; };
+		10290B551D30848800C70EE1 /* GRAGeneralSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B541D30848800C70EE1 /* GRAGeneralSettingsViewController.m */; };
+		10290B581D3084F900C70EE1 /* GRAGeneralSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B571D3084F900C70EE1 /* GRAGeneralSettingsCell.m */; };
+		10290B641D3102DF00C70EE1 /* GRANotificationPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B631D3102DF00C70EE1 /* GRANotificationPageViewController.m */; };
+		10290B671D31031800C70EE1 /* GRANotificationPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B661D31031800C70EE1 /* GRANotificationPageCell.m */; };
+		10290B6D1D3116BB00C70EE1 /* GRASystemWingmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B6C1D3116BB00C70EE1 /* GRASystemWingmanViewController.m */; };
+		10290B701D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B6F1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m */; };
+		10290B731D3116F700C70EE1 /* GRASystemWingmanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10290B721D3116F700C70EE1 /* GRASystemWingmanCell.m */; };
+		1030CEDE1D058F2F0026A86A /* GRALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030CEDD1D058F2F0026A86A /* GRALoginViewController.m */; };
+		1055CA9D1D2E145B000C10EE /* GRAHomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA981D2E145B000C10EE /* GRAHomePageCell.m */; };
+		1055CA9E1D2E145B000C10EE /* GRAHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA9A1D2E145B000C10EE /* GRAHomepageHeaderView.m */; };
+		1055CA9F1D2E145B000C10EE /* GRAHomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CA9C1D2E145B000C10EE /* GRAHomepageViewController.m */; };
+		1055CAA61D2E3788000C10EE /* GRABasicInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CAA51D2E3788000C10EE /* GRABasicInformationViewController.m */; };
+		1055CAAA1D2E3BB4000C10EE /* GRASignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CAA91D2E3BB4000C10EE /* GRASignatureViewController.m */; };
+		1055CAAD1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CAAC1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.m */; };
+		1055CAB21D2E55F7000C10EE /* GRASignatureTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CAB11D2E55F7000C10EE /* GRASignatureTextView.m */; };
+		1055CAB51D2E875E000C10EE /* GRABasicInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1055CAB41D2E875E000C10EE /* GRABasicInformationCell.m */; };
+		105827711D0673B7003195A4 /* GRARetrievePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105827701D0673B7003195A4 /* GRARetrievePasswordViewController.m */; };
+		105BC48F1D06E6A200FDD8AC /* GRANetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */; };
+		105BC4941D071F9900FDD8AC /* GRARegisterFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */; };
+		1089BD0E1D32715000487582 /* GRAInviteFriendsSideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */; };
+		1089BD111D32784300487582 /* GRAInviteFriendsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD101D32784300487582 /* GRAInviteFriendsButton.m */; };
+		1089BD171D33641000487582 /* GRACardPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD161D33641000487582 /* GRACardPageViewController.m */; };
+		1089BD1C1D33645900487582 /* GRACardPageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD1B1D33645900487582 /* GRACardPageHeaderView.m */; };
+		1089BD1F1D33703900487582 /* GRACardPageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD1E1D33703900487582 /* GRACardPageSectionHeaderView.m */; };
+		1089BD241D33717700487582 /* GRALuckyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD231D33717700487582 /* GRALuckyView.m */; };
+		1089BD281D3394A800487582 /* GRACardPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD271D3394A800487582 /* GRACardPageCell.m */; };
+		1089BD2C1D34B39300487582 /* GRACardPageTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD2B1D34B39300487582 /* GRACardPageTabbar.m */; };
+		1089BD2F1D34D2C800487582 /* GRAMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD2E1D34D2C800487582 /* GRAMainPageViewController.m */; };
+		1089BD361D35162200487582 /* GRAOthersBasicInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD351D35162200487582 /* GRAOthersBasicInformationCell.m */; };
+		1089BD391D3519A600487582 /* GRAOthersWantToTalkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD381D3519A600487582 /* GRAOthersWantToTalkCell.m */; };
+		1089BD3C1D351C1700487582 /* GRAOthersInterestsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD3B1D351C1700487582 /* GRAOthersInterestsCell.m */; };
+		1089BD401D351DA900487582 /* GRAOthersInformationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD3F1D351DA900487582 /* GRAOthersInformationHeaderView.m */; };
+		10956F861D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10956F851D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.m */; };
+		10956F891D3609C1007AD449 /* GRAOthersInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10956F881D3609C1007AD449 /* GRAOthersInformationViewController.m */; };
+		10956F8E1D361662007AD449 /* GRAInvisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10956F8D1D361662007AD449 /* GRAInvisibleViewController.m */; };
+		10956F921D361816007AD449 /* GRABlockSameClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10956F911D361816007AD449 /* GRABlockSameClassView.m */; };
+		109DA4CE1D091D1D0072A636 /* GRAAddAvatarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DA4CD1D091D1D0072A636 /* GRAAddAvatarHeaderView.m */; };
+		109DA4D31D092FA80072A636 /* GRARegisterSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DA4D21D092FA80072A636 /* GRARegisterSectionHeaderView.m */; };
+		109DA4D61D0935890072A636 /* GRARegisterBasicInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DA4D51D0935890072A636 /* GRARegisterBasicInformationCell.m */; };
+		109DA4DD1D096D4A0072A636 /* MBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DA4DC1D096D4A0072A636 /* MBSwitch.m */; };
+		109DA4E11D09A1130072A636 /* GRARegisterFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DA4E01D09A1130072A636 /* GRARegisterFourthViewController.m */; };
+		10C4FAA21D07D72E0083A312 /* GRALocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C4FAA11D07D72E0083A312 /* GRALocationManager.m */; };
+		10C4FAA61D0815360083A312 /* GRARegisterThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C4FAA51D0815360083A312 /* GRARegisterThirdViewController.m */; };
+		10E68B761D072245001EB905 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E68B751D072245001EB905 /* MapKit.framework */; };
+		10E68B7B1D072DD4001EB905 /* GRARegisterSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E68B7A1D072DD4001EB905 /* GRARegisterSecondViewController.m */; };
+		10E852231D042C7500A97F42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E852221D042C7500A97F42 /* main.m */; };
+		10E852261D042C7500A97F42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E852251D042C7500A97F42 /* AppDelegate.m */; };
+		10E8522E1D042C7500A97F42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10E8522D1D042C7500A97F42 /* Assets.xcassets */; };
+		10E852311D042C7500A97F42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E8522F1D042C7500A97F42 /* LaunchScreen.storyboard */; };
+		10E8523C1D042C7500A97F42 /* GravityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E8523B1D042C7500A97F42 /* GravityTests.m */; };
+		10E852471D042C7500A97F42 /* GravityUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E852461D042C7500A97F42 /* GravityUITests.m */; };
+		10F7F0E81D325D0900C66338 /* GRAInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F7F0E71D325D0800C66338 /* GRAInviteFriendsViewController.m */; };
+		10F7F0EB1D32631200C66338 /* GRAInviteFriendsMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F7F0EA1D32631200C66338 /* GRAInviteFriendsMainView.m */; };
+		819B25BB36F651D2F5FA0380 /* Pods_Gravity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784C2E29736275AFE02A0C97 /* Pods_Gravity.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10E852381D042C7500A97F42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10E852161D042C7400A97F42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10E8521D1D042C7400A97F42;
+			remoteInfo = Gravity;
+		};
+		10E852431D042C7500A97F42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10E852161D042C7400A97F42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10E8521D1D042C7400A97F42;
+			remoteInfo = Gravity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07ACA5AD93CAA4B5B47659CB /* Pods-Gravity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gravity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gravity/Pods-Gravity.release.xcconfig"; sourceTree = "<group>"; };
+		100D558E1D2A84780068B19E /* GRAAvatarEditerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAAvatarEditerController.h; sourceTree = "<group>"; };
+		100D558F1D2A84780068B19E /* GRAAvatarEditerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAAvatarEditerController.m; sourceTree = "<group>"; };
+		100D55901D2A84780068B19E /* GRAAvatarPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAAvatarPickerController.h; sourceTree = "<group>"; };
+		100D55911D2A84780068B19E /* GRAAvatarPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAAvatarPickerController.m; sourceTree = "<group>"; };
+		100D55921D2A84780068B19E /* GRAPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAPhotoCell.h; sourceTree = "<group>"; };
+		100D55931D2A84780068B19E /* GRAPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAPhotoCell.m; sourceTree = "<group>"; };
+		101048DD1D0C5A7F0084D6AB /* GRARegisterRestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterRestCell.h; sourceTree = "<group>"; };
+		101048DE1D0C5A7F0084D6AB /* GRARegisterRestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterRestCell.m; sourceTree = "<group>"; };
+		10290B531D30848800C70EE1 /* GRAGeneralSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAGeneralSettingsViewController.h; sourceTree = "<group>"; };
+		10290B541D30848800C70EE1 /* GRAGeneralSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAGeneralSettingsViewController.m; sourceTree = "<group>"; };
+		10290B561D3084F900C70EE1 /* GRAGeneralSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAGeneralSettingsCell.h; sourceTree = "<group>"; };
+		10290B571D3084F900C70EE1 /* GRAGeneralSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAGeneralSettingsCell.m; sourceTree = "<group>"; };
+		10290B621D3102DF00C70EE1 /* GRANotificationPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRANotificationPageViewController.h; sourceTree = "<group>"; };
+		10290B631D3102DF00C70EE1 /* GRANotificationPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRANotificationPageViewController.m; sourceTree = "<group>"; };
+		10290B651D31031800C70EE1 /* GRANotificationPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRANotificationPageCell.h; sourceTree = "<group>"; };
+		10290B661D31031800C70EE1 /* GRANotificationPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRANotificationPageCell.m; sourceTree = "<group>"; };
+		10290B6B1D3116BB00C70EE1 /* GRASystemWingmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRASystemWingmanViewController.h; sourceTree = "<group>"; };
+		10290B6C1D3116BB00C70EE1 /* GRASystemWingmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASystemWingmanViewController.m; sourceTree = "<group>"; };
+		10290B6E1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRASystemWingmanSectionHeaderView.h; sourceTree = "<group>"; };
+		10290B6F1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASystemWingmanSectionHeaderView.m; sourceTree = "<group>"; };
+		10290B711D3116F700C70EE1 /* GRASystemWingmanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRASystemWingmanCell.h; sourceTree = "<group>"; };
+		10290B721D3116F700C70EE1 /* GRASystemWingmanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASystemWingmanCell.m; sourceTree = "<group>"; };
+		1030CEDC1D058F2F0026A86A /* GRALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRALoginViewController.h; sourceTree = "<group>"; };
+		1030CEDD1D058F2F0026A86A /* GRALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRALoginViewController.m; sourceTree = "<group>"; };
+		1055CA971D2E145B000C10EE /* GRAHomePageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageCell.h; sourceTree = "<group>"; };
+		1055CA981D2E145B000C10EE /* GRAHomePageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAHomePageCell.m; sourceTree = "<group>"; };
+		1055CA991D2E145B000C10EE /* GRAHomePageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageHeaderView.h; sourceTree = "<group>"; };
+		1055CA9A1D2E145B000C10EE /* GRAHomepageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAHomepageHeaderView.m; sourceTree = "<group>"; };
+		1055CA9B1D2E145B000C10EE /* GRAHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageViewController.h; sourceTree = "<group>"; };
+		1055CA9C1D2E145B000C10EE /* GRAHomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAHomepageViewController.m; sourceTree = "<group>"; };
+		1055CAA41D2E3788000C10EE /* GRABasicInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRABasicInformationViewController.h; sourceTree = "<group>"; };
+		1055CAA51D2E3788000C10EE /* GRABasicInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRABasicInformationViewController.m; sourceTree = "<group>"; };
+		1055CAA81D2E3BB4000C10EE /* GRASignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRASignatureViewController.h; sourceTree = "<group>"; };
+		1055CAA91D2E3BB4000C10EE /* GRASignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASignatureViewController.m; sourceTree = "<group>"; };
+		1055CAAB1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAHomePageSectionHeaderView.h; sourceTree = "<group>"; };
+		1055CAAC1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAHomePageSectionHeaderView.m; sourceTree = "<group>"; };
+		1055CAB01D2E55F7000C10EE /* GRASignatureTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRASignatureTextView.h; sourceTree = "<group>"; };
+		1055CAB11D2E55F7000C10EE /* GRASignatureTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRASignatureTextView.m; sourceTree = "<group>"; };
+		1055CAB31D2E875E000C10EE /* GRABasicInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRABasicInformationCell.h; sourceTree = "<group>"; };
+		1055CAB41D2E875E000C10EE /* GRABasicInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRABasicInformationCell.m; sourceTree = "<group>"; };
+		1058276F1D0673B7003195A4 /* GRARetrievePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARetrievePasswordViewController.h; sourceTree = "<group>"; };
+		105827701D0673B7003195A4 /* GRARetrievePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARetrievePasswordViewController.m; sourceTree = "<group>"; };
+		105BC48D1D06E6A200FDD8AC /* GRANetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRANetworkingManager.h; sourceTree = "<group>"; };
+		105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRANetworkingManager.m; sourceTree = "<group>"; };
+		105BC4921D071F9900FDD8AC /* GRARegisterFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterFirstViewController.h; sourceTree = "<group>"; };
+		105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterFirstViewController.m; sourceTree = "<group>"; };
+		1089BD0C1D32715000487582 /* GRAInviteFriendsSideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsSideView.h; sourceTree = "<group>"; };
+		1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInviteFriendsSideView.m; sourceTree = "<group>"; };
+		1089BD0F1D32784300487582 /* GRAInviteFriendsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsButton.h; sourceTree = "<group>"; };
+		1089BD101D32784300487582 /* GRAInviteFriendsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInviteFriendsButton.m; sourceTree = "<group>"; };
+		1089BD151D33641000487582 /* GRACardPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRACardPageViewController.h; sourceTree = "<group>"; };
+		1089BD161D33641000487582 /* GRACardPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRACardPageViewController.m; sourceTree = "<group>"; };
+		1089BD1A1D33645900487582 /* GRACardPageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRACardPageHeaderView.h; sourceTree = "<group>"; };
+		1089BD1B1D33645900487582 /* GRACardPageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRACardPageHeaderView.m; sourceTree = "<group>"; };
+		1089BD1D1D33703900487582 /* GRACardPageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRACardPageSectionHeaderView.h; sourceTree = "<group>"; };
+		1089BD1E1D33703900487582 /* GRACardPageSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRACardPageSectionHeaderView.m; sourceTree = "<group>"; };
+		1089BD221D33717700487582 /* GRALuckyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRALuckyView.h; sourceTree = "<group>"; };
+		1089BD231D33717700487582 /* GRALuckyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRALuckyView.m; sourceTree = "<group>"; };
+		1089BD261D3394A800487582 /* GRACardPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRACardPageCell.h; sourceTree = "<group>"; };
+		1089BD271D3394A800487582 /* GRACardPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRACardPageCell.m; sourceTree = "<group>"; };
+		1089BD2A1D34B39300487582 /* GRACardPageTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRACardPageTabbar.h; sourceTree = "<group>"; };
+		1089BD2B1D34B39300487582 /* GRACardPageTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRACardPageTabbar.m; sourceTree = "<group>"; };
+		1089BD2D1D34D2C800487582 /* GRAMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAMainPageViewController.h; sourceTree = "<group>"; };
+		1089BD2E1D34D2C800487582 /* GRAMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAMainPageViewController.m; sourceTree = "<group>"; };
+		1089BD341D35162200487582 /* GRAOthersBasicInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersBasicInformationCell.h; sourceTree = "<group>"; };
+		1089BD351D35162200487582 /* GRAOthersBasicInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersBasicInformationCell.m; sourceTree = "<group>"; };
+		1089BD371D3519A600487582 /* GRAOthersWantToTalkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersWantToTalkCell.h; sourceTree = "<group>"; };
+		1089BD381D3519A600487582 /* GRAOthersWantToTalkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersWantToTalkCell.m; sourceTree = "<group>"; };
+		1089BD3A1D351C1700487582 /* GRAOthersInterestsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersInterestsCell.h; sourceTree = "<group>"; };
+		1089BD3B1D351C1700487582 /* GRAOthersInterestsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersInterestsCell.m; sourceTree = "<group>"; };
+		1089BD3E1D351DA900487582 /* GRAOthersInformationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersInformationHeaderView.h; sourceTree = "<group>"; };
+		1089BD3F1D351DA900487582 /* GRAOthersInformationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersInformationHeaderView.m; sourceTree = "<group>"; };
+		10956F841D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersInformationSectionHeaderView.h; sourceTree = "<group>"; };
+		10956F851D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersInformationSectionHeaderView.m; sourceTree = "<group>"; };
+		10956F871D3609C1007AD449 /* GRAOthersInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAOthersInformationViewController.h; sourceTree = "<group>"; };
+		10956F881D3609C1007AD449 /* GRAOthersInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAOthersInformationViewController.m; sourceTree = "<group>"; };
+		10956F8C1D361662007AD449 /* GRAInvisibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInvisibleViewController.h; sourceTree = "<group>"; };
+		10956F8D1D361662007AD449 /* GRAInvisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInvisibleViewController.m; sourceTree = "<group>"; };
+		10956F901D361816007AD449 /* GRABlockSameClassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRABlockSameClassView.h; sourceTree = "<group>"; };
+		10956F911D361816007AD449 /* GRABlockSameClassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRABlockSameClassView.m; sourceTree = "<group>"; };
+		109DA4CC1D091D1D0072A636 /* GRAAddAvatarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAAddAvatarHeaderView.h; sourceTree = "<group>"; };
+		109DA4CD1D091D1D0072A636 /* GRAAddAvatarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAAddAvatarHeaderView.m; sourceTree = "<group>"; };
+		109DA4D11D092FA80072A636 /* GRARegisterSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterSectionHeaderView.h; sourceTree = "<group>"; };
+		109DA4D21D092FA80072A636 /* GRARegisterSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterSectionHeaderView.m; sourceTree = "<group>"; };
+		109DA4D41D0935890072A636 /* GRARegisterBasicInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterBasicInformationCell.h; sourceTree = "<group>"; };
+		109DA4D51D0935890072A636 /* GRARegisterBasicInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterBasicInformationCell.m; sourceTree = "<group>"; };
+		109DA4DB1D096D4A0072A636 /* MBSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSwitch.h; sourceTree = "<group>"; };
+		109DA4DC1D096D4A0072A636 /* MBSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSwitch.m; sourceTree = "<group>"; };
+		109DA4DF1D09A1130072A636 /* GRARegisterFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterFourthViewController.h; sourceTree = "<group>"; };
+		109DA4E01D09A1130072A636 /* GRARegisterFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterFourthViewController.m; sourceTree = "<group>"; };
+		10C4FAA01D07D72E0083A312 /* GRALocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRALocationManager.h; sourceTree = "<group>"; };
+		10C4FAA11D07D72E0083A312 /* GRALocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRALocationManager.m; sourceTree = "<group>"; };
+		10C4FAA41D0815360083A312 /* GRARegisterThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterThirdViewController.h; sourceTree = "<group>"; };
+		10C4FAA51D0815360083A312 /* GRARegisterThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterThirdViewController.m; sourceTree = "<group>"; };
+		10E68B751D072245001EB905 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		10E68B791D072DD4001EB905 /* GRARegisterSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterSecondViewController.h; sourceTree = "<group>"; };
+		10E68B7A1D072DD4001EB905 /* GRARegisterSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterSecondViewController.m; sourceTree = "<group>"; };
+		10E8521E1D042C7400A97F42 /* Gravity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gravity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E852221D042C7500A97F42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10E852241D042C7500A97F42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		10E852251D042C7500A97F42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		10E8522D1D042C7500A97F42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10E852301D042C7500A97F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10E852321D042C7500A97F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E852371D042C7500A97F42 /* GravityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E8523B1D042C7500A97F42 /* GravityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GravityTests.m; sourceTree = "<group>"; };
+		10E8523D1D042C7500A97F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E852421D042C7500A97F42 /* GravityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E852461D042C7500A97F42 /* GravityUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GravityUITests.m; sourceTree = "<group>"; };
+		10E852481D042C7500A97F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E852541D0430BE00A97F42 /* ColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMacro.h; sourceTree = "<group>"; };
+		10F7F0E61D325D0800C66338 /* GRAInviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsViewController.h; sourceTree = "<group>"; };
+		10F7F0E71D325D0800C66338 /* GRAInviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInviteFriendsViewController.m; sourceTree = "<group>"; };
+		10F7F0E91D32631200C66338 /* GRAInviteFriendsMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsMainView.h; sourceTree = "<group>"; };
+		10F7F0EA1D32631200C66338 /* GRAInviteFriendsMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInviteFriendsMainView.m; sourceTree = "<group>"; };
+		784C2E29736275AFE02A0C97 /* Pods_Gravity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gravity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF6BF13DEA9EFBCB1C7E198 /* Pods-Gravity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gravity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gravity/Pods-Gravity.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10E8521B1D042C7400A97F42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E68B761D072245001EB905 /* MapKit.framework in Frameworks */,
+				819B25BB36F651D2F5FA0380 /* Pods_Gravity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E852341D042C7500A97F42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E8523F1D042C7500A97F42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		100D558D1D2A84640068B19E /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				10329A6C1D2B884D0082D04A /* Views */,
+				10329A6B1D2B88420082D04A /* Controllers */,
+			);
+			name = Avatar;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		10290B501D3083FE00C70EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAB31D2E875E000C10EE /* GRABasicInformationCell.h */,
+				1055CAB41D2E875E000C10EE /* GRABasicInformationCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		10290B511D30840600C70EE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAA41D2E3788000C10EE /* GRABasicInformationViewController.h */,
+				1055CAA51D2E3788000C10EE /* GRABasicInformationViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10290B521D30844C00C70EE1 /* GeneralSettings */ = {
+			isa = PBXGroup;
+			children = (
+				10290B5A1D30850100C70EE1 /* Controllers */,
+				10290B591D3084FD00C70EE1 /* Views */,
+			);
+			name = GeneralSettings;
+			sourceTree = "<group>";
+		};
+		10290B591D3084FD00C70EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10290B561D3084F900C70EE1 /* GRAGeneralSettingsCell.h */,
+				10290B571D3084F900C70EE1 /* GRAGeneralSettingsCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		10290B5A1D30850100C70EE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10290B531D30848800C70EE1 /* GRAGeneralSettingsViewController.h */,
+				10290B541D30848800C70EE1 /* GRAGeneralSettingsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10290B5B1D31027F00C70EE1 /* NotificationPage */ = {
+			isa = PBXGroup;
+			children = (
+				10290B681D31168200C70EE1 /* SystemWingman */,
+				10290B611D3102BD00C70EE1 /* MainPage */,
+			);
+			name = NotificationPage;
+			sourceTree = "<group>";
+		};
+		10290B5F1D3102A300C70EE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10290B621D3102DF00C70EE1 /* GRANotificationPageViewController.h */,
+				10290B631D3102DF00C70EE1 /* GRANotificationPageViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10290B601D3102A800C70EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10290B651D31031800C70EE1 /* GRANotificationPageCell.h */,
+				10290B661D31031800C70EE1 /* GRANotificationPageCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		10290B611D3102BD00C70EE1 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				10290B601D3102A800C70EE1 /* Views */,
+				10290B5F1D3102A300C70EE1 /* Controllers */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		10290B681D31168200C70EE1 /* SystemWingman */ = {
+			isa = PBXGroup;
+			children = (
+				10290B6A1D3116A400C70EE1 /* Controllers */,
+				10290B691D31168D00C70EE1 /* Views */,
+			);
+			name = SystemWingman;
+			sourceTree = "<group>";
+		};
+		10290B691D31168D00C70EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10290B6E1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.h */,
+				10290B6F1D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m */,
+				10290B711D3116F700C70EE1 /* GRASystemWingmanCell.h */,
+				10290B721D3116F700C70EE1 /* GRASystemWingmanCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		10290B6A1D3116A400C70EE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10290B6B1D3116BB00C70EE1 /* GRASystemWingmanViewController.h */,
+				10290B6C1D3116BB00C70EE1 /* GRASystemWingmanViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10329A6B1D2B88420082D04A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				100D55901D2A84780068B19E /* GRAAvatarPickerController.h */,
+				100D55911D2A84780068B19E /* GRAAvatarPickerController.m */,
+				100D558E1D2A84780068B19E /* GRAAvatarEditerController.h */,
+				100D558F1D2A84780068B19E /* GRAAvatarEditerController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10329A6C1D2B884D0082D04A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				100D55921D2A84780068B19E /* GRAPhotoCell.h */,
+				100D55931D2A84780068B19E /* GRAPhotoCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1055CA961D2E13EE000C10EE /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAAB1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.h */,
+				1055CAAC1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.m */,
+				1055CAA21D2E35E0000C10EE /* MainPage */,
+				1055CAA31D2E35EE000C10EE /* BasicInformation */,
+				1055CAA71D2E3B8B000C10EE /* Signature */,
+				10290B521D30844C00C70EE1 /* GeneralSettings */,
+				10F7F0E31D325CC400C66338 /* InviteFriends */,
+				10956F8A1D3615BD007AD449 /* Invisible */,
+			);
+			name = Homepage;
+			sourceTree = "<group>";
+		};
+		1055CAA01D2E1564000C10EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1055CA9B1D2E145B000C10EE /* GRAHomePageViewController.h */,
+				1055CA9C1D2E145B000C10EE /* GRAHomepageViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1055CAA11D2E1573000C10EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1055CA971D2E145B000C10EE /* GRAHomePageCell.h */,
+				1055CA981D2E145B000C10EE /* GRAHomePageCell.m */,
+				1055CA991D2E145B000C10EE /* GRAHomePageHeaderView.h */,
+				1055CA9A1D2E145B000C10EE /* GRAHomepageHeaderView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1055CAA21D2E35E0000C10EE /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAA11D2E1573000C10EE /* Views */,
+				1055CAA01D2E1564000C10EE /* Controllers */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		1055CAA31D2E35EE000C10EE /* BasicInformation */ = {
+			isa = PBXGroup;
+			children = (
+				10290B511D30840600C70EE1 /* Controllers */,
+				10290B501D3083FE00C70EE1 /* Views */,
+			);
+			name = BasicInformation;
+			sourceTree = "<group>";
+		};
+		1055CAA71D2E3B8B000C10EE /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAAE1D2E55D3000C10EE /* Views */,
+				1055CAAF1D2E55DA000C10EE /* Controllers */,
+			);
+			name = Signature;
+			sourceTree = "<group>";
+		};
+		1055CAAE1D2E55D3000C10EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAB01D2E55F7000C10EE /* GRASignatureTextView.h */,
+				1055CAB11D2E55F7000C10EE /* GRASignatureTextView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1055CAAF1D2E55DA000C10EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1055CAA81D2E3BB4000C10EE /* GRASignatureViewController.h */,
+				1055CAA91D2E3BB4000C10EE /* GRASignatureViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		105BC4901D06E8EC00FDD8AC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				105BC48D1D06E6A200FDD8AC /* GRANetworkingManager.h */,
+				105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		1089BD121D33618E00487582 /* Mainpage */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD131D3361A800487582 /* Mainpage */,
+				1089BD141D3363C200487582 /* Cardpage */,
+			);
+			name = Mainpage;
+			sourceTree = "<group>";
+		};
+		1089BD131D3361A800487582 /* Mainpage */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD2D1D34D2C800487582 /* GRAMainPageViewController.h */,
+				1089BD2E1D34D2C800487582 /* GRAMainPageViewController.m */,
+			);
+			name = Mainpage;
+			sourceTree = "<group>";
+		};
+		1089BD141D3363C200487582 /* Cardpage */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD191D33644200487582 /* Views */,
+				1089BD181D33641400487582 /* Controllers */,
+			);
+			name = Cardpage;
+			sourceTree = "<group>";
+		};
+		1089BD181D33641400487582 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD151D33641000487582 /* GRACardPageViewController.h */,
+				1089BD161D33641000487582 /* GRACardPageViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1089BD191D33644200487582 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD291D34B32A00487582 /* Tabbar */,
+				1089BD251D3382D300487582 /* Cell */,
+				1089BD211D33714600487582 /* SectionHeaderView */,
+				1089BD201D33713800487582 /* HeaderView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1089BD201D33713800487582 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD1A1D33645900487582 /* GRACardPageHeaderView.h */,
+				1089BD1B1D33645900487582 /* GRACardPageHeaderView.m */,
+			);
+			name = HeaderView;
+			sourceTree = "<group>";
+		};
+		1089BD211D33714600487582 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD1D1D33703900487582 /* GRACardPageSectionHeaderView.h */,
+				1089BD1E1D33703900487582 /* GRACardPageSectionHeaderView.m */,
+				1089BD221D33717700487582 /* GRALuckyView.h */,
+				1089BD231D33717700487582 /* GRALuckyView.m */,
+			);
+			name = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		1089BD251D3382D300487582 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD261D3394A800487582 /* GRACardPageCell.h */,
+				1089BD271D3394A800487582 /* GRACardPageCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		1089BD291D34B32A00487582 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD2A1D34B39300487582 /* GRACardPageTabbar.h */,
+				1089BD2B1D34B39300487582 /* GRACardPageTabbar.m */,
+			);
+			name = Tabbar;
+			sourceTree = "<group>";
+		};
+		1089BD301D35124E00487582 /* OthersInformation */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD321D35127300487582 /* Views */,
+				1089BD311D35126B00487582 /* Controllers */,
+			);
+			name = OthersInformation;
+			sourceTree = "<group>";
+		};
+		1089BD311D35126B00487582 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10956F871D3609C1007AD449 /* GRAOthersInformationViewController.h */,
+				10956F881D3609C1007AD449 /* GRAOthersInformationViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1089BD321D35127300487582 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10956F831D360699007AD449 /* SectionHeaderView */,
+				1089BD3D1D351D7500487582 /* HeaderView */,
+				1089BD331D3515F900487582 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1089BD331D3515F900487582 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD341D35162200487582 /* GRAOthersBasicInformationCell.h */,
+				1089BD351D35162200487582 /* GRAOthersBasicInformationCell.m */,
+				1089BD371D3519A600487582 /* GRAOthersWantToTalkCell.h */,
+				1089BD381D3519A600487582 /* GRAOthersWantToTalkCell.m */,
+				1089BD3A1D351C1700487582 /* GRAOthersInterestsCell.h */,
+				1089BD3B1D351C1700487582 /* GRAOthersInterestsCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		1089BD3D1D351D7500487582 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				1089BD3E1D351DA900487582 /* GRAOthersInformationHeaderView.h */,
+				1089BD3F1D351DA900487582 /* GRAOthersInformationHeaderView.m */,
+			);
+			name = HeaderView;
+			sourceTree = "<group>";
+		};
+		10956F831D360699007AD449 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				10956F841D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.h */,
+				10956F851D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.m */,
+			);
+			name = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		10956F8A1D3615BD007AD449 /* Invisible */ = {
+			isa = PBXGroup;
+			children = (
+				10956F8F1D361804007AD449 /* Views */,
+				10956F8B1D361651007AD449 /* Controllers */,
+			);
+			name = Invisible;
+			sourceTree = "<group>";
+		};
+		10956F8B1D361651007AD449 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10956F8C1D361662007AD449 /* GRAInvisibleViewController.h */,
+				10956F8D1D361662007AD449 /* GRAInvisibleViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10956F8F1D361804007AD449 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10956F901D361816007AD449 /* GRABlockSameClassView.h */,
+				10956F911D361816007AD449 /* GRABlockSameClassView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		109DA4CF1D091D4C0072A636 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				105BC4921D071F9900FDD8AC /* GRARegisterFirstViewController.h */,
+				105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */,
+				10E68B791D072DD4001EB905 /* GRARegisterSecondViewController.h */,
+				10E68B7A1D072DD4001EB905 /* GRARegisterSecondViewController.m */,
+				10C4FAA41D0815360083A312 /* GRARegisterThirdViewController.h */,
+				10C4FAA51D0815360083A312 /* GRARegisterThirdViewController.m */,
+				109DA4DF1D09A1130072A636 /* GRARegisterFourthViewController.h */,
+				109DA4E01D09A1130072A636 /* GRARegisterFourthViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		109DA4D01D091D5A0072A636 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				109DA4DE1D0989070072A636 /* HeaderViews */,
+				109DA4D71D09358F0072A636 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		109DA4D71D09358F0072A636 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				109DA4D41D0935890072A636 /* GRARegisterBasicInformationCell.h */,
+				109DA4D51D0935890072A636 /* GRARegisterBasicInformationCell.m */,
+				101048DD1D0C5A7F0084D6AB /* GRARegisterRestCell.h */,
+				101048DE1D0C5A7F0084D6AB /* GRARegisterRestCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		109DA4DA1D0962580072A636 /* OpenSource */ = {
+			isa = PBXGroup;
+			children = (
+				109DA4DB1D096D4A0072A636 /* MBSwitch.h */,
+				109DA4DC1D096D4A0072A636 /* MBSwitch.m */,
+			);
+			name = OpenSource;
+			sourceTree = "<group>";
+		};
+		109DA4DE1D0989070072A636 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				109DA4CC1D091D1D0072A636 /* GRAAddAvatarHeaderView.h */,
+				109DA4CD1D091D1D0072A636 /* GRAAddAvatarHeaderView.m */,
+				109DA4D11D092FA80072A636 /* GRARegisterSectionHeaderView.h */,
+				109DA4D21D092FA80072A636 /* GRARegisterSectionHeaderView.m */,
+			);
+			name = HeaderViews;
+			sourceTree = "<group>";
+		};
+		10C4FAA31D07D7690083A312 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				10C4FAA01D07D72E0083A312 /* GRALocationManager.h */,
+				10C4FAA11D07D72E0083A312 /* GRALocationManager.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
+		10E68B771D072D87001EB905 /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				1030CEDC1D058F2F0026A86A /* GRALoginViewController.h */,
+				1030CEDD1D058F2F0026A86A /* GRALoginViewController.m */,
+				1058276F1D0673B7003195A4 /* GRARetrievePasswordViewController.h */,
+				105827701D0673B7003195A4 /* GRARetrievePasswordViewController.m */,
+			);
+			name = Signin;
+			sourceTree = "<group>";
+		};
+		10E68B781D072D9C001EB905 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				109DA4D01D091D5A0072A636 /* Views */,
+				109DA4CF1D091D4C0072A636 /* Controllers */,
+			);
+			name = Signup;
+			sourceTree = "<group>";
+		};
+		10E852151D042C7400A97F42 = {
+			isa = PBXGroup;
+			children = (
+				109DA4DA1D0962580072A636 /* OpenSource */,
+				10E852201D042C7400A97F42 /* Gravity */,
+				10E8523A1D042C7500A97F42 /* GravityTests */,
+				10E852451D042C7500A97F42 /* GravityUITests */,
+				10E8521F1D042C7400A97F42 /* Products */,
+				9E99E38195062C72EFF37CE1 /* Pods */,
+				3B414AEC95DEFCB86B58B924 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		10E8521F1D042C7400A97F42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10E8521E1D042C7400A97F42 /* Gravity.app */,
+				10E852371D042C7500A97F42 /* GravityTests.xctest */,
+				10E852421D042C7500A97F42 /* GravityUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10E852201D042C7400A97F42 /* Gravity */ = {
+			isa = PBXGroup;
+			children = (
+				10E852241D042C7500A97F42 /* AppDelegate.h */,
+				10E852251D042C7500A97F42 /* AppDelegate.m */,
+				10C4FAA31D07D7690083A312 /* Location */,
+				105BC4901D06E8EC00FDD8AC /* Network */,
+				100D558D1D2A84640068B19E /* Avatar */,
+				10E68B771D072D87001EB905 /* Signin */,
+				10E68B781D072D9C001EB905 /* Signup */,
+				1055CA961D2E13EE000C10EE /* Homepage */,
+				1089BD121D33618E00487582 /* Mainpage */,
+				1089BD301D35124E00487582 /* OthersInformation */,
+				10290B5B1D31027F00C70EE1 /* NotificationPage */,
+				10E852541D0430BE00A97F42 /* ColorMacro.h */,
+				10E8522D1D042C7500A97F42 /* Assets.xcassets */,
+				10E8522F1D042C7500A97F42 /* LaunchScreen.storyboard */,
+				10E852321D042C7500A97F42 /* Info.plist */,
+				10E852211D042C7400A97F42 /* Supporting Files */,
+			);
+			path = Gravity;
+			sourceTree = "<group>";
+		};
+		10E852211D042C7400A97F42 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10E852221D042C7500A97F42 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10E8523A1D042C7500A97F42 /* GravityTests */ = {
+			isa = PBXGroup;
+			children = (
+				10E8523B1D042C7500A97F42 /* GravityTests.m */,
+				10E8523D1D042C7500A97F42 /* Info.plist */,
+			);
+			path = GravityTests;
+			sourceTree = "<group>";
+		};
+		10E852451D042C7500A97F42 /* GravityUITests */ = {
+			isa = PBXGroup;
+			children = (
+				10E852461D042C7500A97F42 /* GravityUITests.m */,
+				10E852481D042C7500A97F42 /* Info.plist */,
+			);
+			path = GravityUITests;
+			sourceTree = "<group>";
+		};
+		10F7F0E31D325CC400C66338 /* InviteFriends */ = {
+			isa = PBXGroup;
+			children = (
+				10F7F0E51D325CE300C66338 /* Controllers */,
+				10F7F0E41D325CDA00C66338 /* Views */,
+			);
+			name = InviteFriends;
+			sourceTree = "<group>";
+		};
+		10F7F0E41D325CDA00C66338 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10F7F0E91D32631200C66338 /* GRAInviteFriendsMainView.h */,
+				10F7F0EA1D32631200C66338 /* GRAInviteFriendsMainView.m */,
+				1089BD0C1D32715000487582 /* GRAInviteFriendsSideView.h */,
+				1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */,
+				1089BD0F1D32784300487582 /* GRAInviteFriendsButton.h */,
+				1089BD101D32784300487582 /* GRAInviteFriendsButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		10F7F0E51D325CE300C66338 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10F7F0E61D325D0800C66338 /* GRAInviteFriendsViewController.h */,
+				10F7F0E71D325D0800C66338 /* GRAInviteFriendsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3B414AEC95DEFCB86B58B924 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10E68B751D072245001EB905 /* MapKit.framework */,
+				784C2E29736275AFE02A0C97 /* Pods_Gravity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E99E38195062C72EFF37CE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EF6BF13DEA9EFBCB1C7E198 /* Pods-Gravity.debug.xcconfig */,
+				07ACA5AD93CAA4B5B47659CB /* Pods-Gravity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10E8521D1D042C7400A97F42 /* Gravity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10E8524B1D042C7500A97F42 /* Build configuration list for PBXNativeTarget "Gravity" */;
+			buildPhases = (
+				412327E6407769BEAB03396C /* [CP] Check Pods Manifest.lock */,
+				10E8521A1D042C7400A97F42 /* Sources */,
+				10E8521B1D042C7400A97F42 /* Frameworks */,
+				10E8521C1D042C7400A97F42 /* Resources */,
+				5FAF781054EEFA7DE9FB7FFF /* [CP] Embed Pods Frameworks */,
+				B2563AFD0A25BCE09909FEA4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gravity;
+			productName = Gravity;
+			productReference = 10E8521E1D042C7400A97F42 /* Gravity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10E852361D042C7500A97F42 /* GravityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10E8524E1D042C7500A97F42 /* Build configuration list for PBXNativeTarget "GravityTests" */;
+			buildPhases = (
+				10E852331D042C7500A97F42 /* Sources */,
+				10E852341D042C7500A97F42 /* Frameworks */,
+				10E852351D042C7500A97F42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10E852391D042C7500A97F42 /* PBXTargetDependency */,
+			);
+			name = GravityTests;
+			productName = GravityTests;
+			productReference = 10E852371D042C7500A97F42 /* GravityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		10E852411D042C7500A97F42 /* GravityUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10E852511D042C7500A97F42 /* Build configuration list for PBXNativeTarget "GravityUITests" */;
+			buildPhases = (
+				10E8523E1D042C7500A97F42 /* Sources */,
+				10E8523F1D042C7500A97F42 /* Frameworks */,
+				10E852401D042C7500A97F42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10E852441D042C7500A97F42 /* PBXTargetDependency */,
+			);
+			name = GravityUITests;
+			productName = GravityUITests;
+			productReference = 10E852421D042C7500A97F42 /* GravityUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10E852161D042C7400A97F42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "陈志浩";
+				TargetAttributes = {
+					10E8521D1D042C7400A97F42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T97FFXXX75;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					10E852361D042C7500A97F42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 10E8521D1D042C7400A97F42;
+					};
+					10E852411D042C7500A97F42 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 10E8521D1D042C7400A97F42;
+					};
+				};
+			};
+			buildConfigurationList = 10E852191D042C7400A97F42 /* Build configuration list for PBXProject "Gravity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10E852151D042C7400A97F42;
+			productRefGroup = 10E8521F1D042C7400A97F42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10E8521D1D042C7400A97F42 /* Gravity */,
+				10E852361D042C7500A97F42 /* GravityTests */,
+				10E852411D042C7500A97F42 /* GravityUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10E8521C1D042C7400A97F42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E852311D042C7500A97F42 /* LaunchScreen.storyboard in Resources */,
+				10E8522E1D042C7500A97F42 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E852351D042C7500A97F42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E852401D042C7500A97F42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		412327E6407769BEAB03396C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5FAF781054EEFA7DE9FB7FFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gravity/Pods-Gravity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2563AFD0A25BCE09909FEA4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gravity/Pods-Gravity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10E8521A1D042C7400A97F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100D55941D2A84780068B19E /* GRAAvatarEditerController.m in Sources */,
+				1089BD2C1D34B39300487582 /* GRACardPageTabbar.m in Sources */,
+				1055CA9E1D2E145B000C10EE /* GRAHomepageHeaderView.m in Sources */,
+				1055CAB51D2E875E000C10EE /* GRABasicInformationCell.m in Sources */,
+				10E68B7B1D072DD4001EB905 /* GRARegisterSecondViewController.m in Sources */,
+				1089BD2F1D34D2C800487582 /* GRAMainPageViewController.m in Sources */,
+				1055CA9D1D2E145B000C10EE /* GRAHomePageCell.m in Sources */,
+				101048DF1D0C5A7F0084D6AB /* GRARegisterRestCell.m in Sources */,
+				1089BD401D351DA900487582 /* GRAOthersInformationHeaderView.m in Sources */,
+				105827711D0673B7003195A4 /* GRARetrievePasswordViewController.m in Sources */,
+				10E852261D042C7500A97F42 /* AppDelegate.m in Sources */,
+				1089BD171D33641000487582 /* GRACardPageViewController.m in Sources */,
+				10290B581D3084F900C70EE1 /* GRAGeneralSettingsCell.m in Sources */,
+				10956F8E1D361662007AD449 /* GRAInvisibleViewController.m in Sources */,
+				10E852231D042C7500A97F42 /* main.m in Sources */,
+				1089BD361D35162200487582 /* GRAOthersBasicInformationCell.m in Sources */,
+				1089BD281D3394A800487582 /* GRACardPageCell.m in Sources */,
+				1089BD1F1D33703900487582 /* GRACardPageSectionHeaderView.m in Sources */,
+				10C4FAA61D0815360083A312 /* GRARegisterThirdViewController.m in Sources */,
+				10F7F0EB1D32631200C66338 /* GRAInviteFriendsMainView.m in Sources */,
+				10956F891D3609C1007AD449 /* GRAOthersInformationViewController.m in Sources */,
+				1089BD3C1D351C1700487582 /* GRAOthersInterestsCell.m in Sources */,
+				109DA4D61D0935890072A636 /* GRARegisterBasicInformationCell.m in Sources */,
+				1055CAAD1D2E3C34000C10EE /* GRAHomePageSectionHeaderView.m in Sources */,
+				1089BD391D3519A600487582 /* GRAOthersWantToTalkCell.m in Sources */,
+				1089BD1C1D33645900487582 /* GRACardPageHeaderView.m in Sources */,
+				10956F861D3606CA007AD449 /* GRAOthersInformationSectionHeaderView.m in Sources */,
+				109DA4CE1D091D1D0072A636 /* GRAAddAvatarHeaderView.m in Sources */,
+				100D55951D2A84780068B19E /* GRAAvatarPickerController.m in Sources */,
+				10290B641D3102DF00C70EE1 /* GRANotificationPageViewController.m in Sources */,
+				1055CA9F1D2E145B000C10EE /* GRAHomepageViewController.m in Sources */,
+				1089BD111D32784300487582 /* GRAInviteFriendsButton.m in Sources */,
+				109DA4DD1D096D4A0072A636 /* MBSwitch.m in Sources */,
+				100D55961D2A84780068B19E /* GRAPhotoCell.m in Sources */,
+				109DA4D31D092FA80072A636 /* GRARegisterSectionHeaderView.m in Sources */,
+				10290B671D31031800C70EE1 /* GRANotificationPageCell.m in Sources */,
+				105BC48F1D06E6A200FDD8AC /* GRANetworkingManager.m in Sources */,
+				10290B551D30848800C70EE1 /* GRAGeneralSettingsViewController.m in Sources */,
+				109DA4E11D09A1130072A636 /* GRARegisterFourthViewController.m in Sources */,
+				10F7F0E81D325D0900C66338 /* GRAInviteFriendsViewController.m in Sources */,
+				10C4FAA21D07D72E0083A312 /* GRALocationManager.m in Sources */,
+				1055CAA61D2E3788000C10EE /* GRABasicInformationViewController.m in Sources */,
+				10956F921D361816007AD449 /* GRABlockSameClassView.m in Sources */,
+				105BC4941D071F9900FDD8AC /* GRARegisterFirstViewController.m in Sources */,
+				1089BD0E1D32715000487582 /* GRAInviteFriendsSideView.m in Sources */,
+				10290B6D1D3116BB00C70EE1 /* GRASystemWingmanViewController.m in Sources */,
+				1030CEDE1D058F2F0026A86A /* GRALoginViewController.m in Sources */,
+				1089BD241D33717700487582 /* GRALuckyView.m in Sources */,
+				1055CAAA1D2E3BB4000C10EE /* GRASignatureViewController.m in Sources */,
+				1055CAB21D2E55F7000C10EE /* GRASignatureTextView.m in Sources */,
+				10290B701D3116D800C70EE1 /* GRASystemWingmanSectionHeaderView.m in Sources */,
+				10290B731D3116F700C70EE1 /* GRASystemWingmanCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E852331D042C7500A97F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E8523C1D042C7500A97F42 /* GravityTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E8523E1D042C7500A97F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E852471D042C7500A97F42 /* GravityUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10E852391D042C7500A97F42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10E8521D1D042C7400A97F42 /* Gravity */;
+			targetProxy = 10E852381D042C7500A97F42 /* PBXContainerItemProxy */;
+		};
+		10E852441D042C7500A97F42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10E8521D1D042C7400A97F42 /* Gravity */;
+			targetProxy = 10E852431D042C7500A97F42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10E8522F1D042C7500A97F42 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E852301D042C7500A97F42 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10E852491D042C7500A97F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		10E8524A1D042C7500A97F42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10E8524C1D042C7500A97F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EF6BF13DEA9EFBCB1C7E198 /* Pods-Gravity.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T97FFXXX75;
+				INFOPLIST_FILE = Gravity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.czh.Gravity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Debug;
+		};
+		10E8524D1D042C7500A97F42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07ACA5AD93CAA4B5B47659CB /* Pods-Gravity.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T97FFXXX75;
+				INFOPLIST_FILE = Gravity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.czh.Gravity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Release;
+		};
+		10E8524F1D042C7500A97F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GravityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlackDragon.GravityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gravity.app/Gravity";
+			};
+			name = Debug;
+		};
+		10E852501D042C7500A97F42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GravityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlackDragon.GravityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gravity.app/Gravity";
+			};
+			name = Release;
+		};
+		10E852521D042C7500A97F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GravityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlackDragon.GravityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gravity;
+			};
+			name = Debug;
+		};
+		10E852531D042C7500A97F42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GravityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlackDragon.GravityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gravity;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10E852191D042C7400A97F42 /* Build configuration list for PBXProject "Gravity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E852491D042C7500A97F42 /* Debug */,
+				10E8524A1D042C7500A97F42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10E8524B1D042C7500A97F42 /* Build configuration list for PBXNativeTarget "Gravity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E8524C1D042C7500A97F42 /* Debug */,
+				10E8524D1D042C7500A97F42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10E8524E1D042C7500A97F42 /* Build configuration list for PBXNativeTarget "GravityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E8524F1D042C7500A97F42 /* Debug */,
+				10E852501D042C7500A97F42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10E852511D042C7500A97F42 /* Build configuration list for PBXNativeTarget "GravityUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E852521D042C7500A97F42 /* Debug */,
+				10E852531D042C7500A97F42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10E852161D042C7400A97F42 /* Project object */;
+}

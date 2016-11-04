@@ -49,6 +49,7 @@
 //    GRACardPageViewController * cardpage = [[GRACardPageViewController alloc]init];
 //    GRAMainPageViewController * mainpage = [[GRAMainPageViewController alloc]init];
 //    GRAOthersInformationViewController * othersInfo = [[GRAOthersInformationViewController alloc]init];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"id"];
     [self configureBasicUI];
     [self configureLocationManager];
     [self locationManagerConfiguration:launchOptions];

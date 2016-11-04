@@ -181,12 +181,14 @@ static NSString * uploadURL = @"/backend/api/user/position";
     NSMutableArray * locations = [NSMutableArray array];
     
     RLMRealm * realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
     
     for (Position * positon in results) {
         [locations addObject:[positon convertedToDictionary]];
         [realm deleteObject:positon];
     }
     
+    [realm commitWriteTransaction];
     [self updateLocation:[NSArray arrayWithArray:locations]];
 }
 

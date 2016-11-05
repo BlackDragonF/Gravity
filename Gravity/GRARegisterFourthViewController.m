@@ -9,11 +9,14 @@
 #import "GRARegisterFourthViewController.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
 
 #import "GRARegisterSectionHeaderView.h"
 #import "GRARegisterRestCell.h"
 
 #import "GRANetworkingManager.h"
+
+#import "GRAMainPageViewController.h"
 
 @interface GRARegisterFourthViewController()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
     NSMutableDictionary * _signupParameters;
@@ -164,9 +167,17 @@ static NSString * restIdentifier = @"rest";
     [_signupParameters setObject:[NSNumber numberWithDouble: [NSDate date].timeIntervalSince1970] forKey:@"timestamp"];
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupURL andParameters:_signupParameters completionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
-            NSLog(@"%@", responseJSON);
             NSDictionary * user = responseJSON[@"data"][@"user"];
             [[NSUserDefaults standardUserDefaults] setInteger:[user[@"id"] integerValue] forKey:@"id"];
+            [SVProgressHUD setMinimumDismissTimeInterval:0.5];
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            
+            GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
+            dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
+            dispatch_queue_t mainQueue = dispatch_get_main_queue();
+            dispatch_after(delay, mainQueue, ^(void){
+                [self.navigationController pushViewController:main animated:YES];
+            });
         }
     }];
 }

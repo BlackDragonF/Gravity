@@ -9,7 +9,9 @@
 #import "GRARegisterFirstViewController.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
 #import "GRANetworkingManager.h"
+
 @interface GRARegisterFirstViewController()<UITextFieldDelegate> {
     NSDictionary * _resendButtonAttributedTitle;
     NSTimer * _timer;
@@ -24,6 +26,7 @@
 @property (nonatomic, strong) UITextField * verificationText;
 @property (nonatomic, strong) UIButton * resendButton;
 @property (nonatomic, strong) UIBarButtonItem * nextButton;
+@property (nonatomic, strong) UIBarButtonItem * backButton;
 @end
 
 @implementation GRARegisterFirstViewController
@@ -53,6 +56,9 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
 }
 
 - (void)addNavigationItems{
+    UIBarButtonItem * negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width = -4.0;
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer, self.backButton];
     [self.resendButton addTarget:self action:@selector(resend) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * negativeSpacer2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer2.width = 4.0;
@@ -110,6 +116,12 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
     }];
 }
 #pragma mark 交互相关
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 - (void)resend{
     self.resendButton.backgroundColor = [UIColor transparentWhiteColor2];
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupSmsURL andParameters:@{@"phone": self.phoneText.text} completionHandler:^(NSDictionary * responseJSON) {
@@ -118,7 +130,8 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
             self.resendButton.userInteractionEnabled = NO;
             _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeCount) userInfo:nil repeats:YES];
         } else if ([responseJSON[@"error"] isEqualToString:@"phone:exists"]){
-            NSLog(@"用户注册：手机号已存在！");
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"手机号已存在"];
         }
     }];
 }
@@ -138,7 +151,8 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
             GRARegisterSecondViewController * register2 = [[GRARegisterSecondViewController alloc]initWithSignupParameters:signupParameters];
             [self.navigationController showViewController:register2 sender:self];
         } else if ([responseJSON[@"error"] isEqualToString:@"verify:failed"]) {
-            NSLog(@"验证手机：失败！");
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"手机验证失败"];
         }
     }];
 }
@@ -240,6 +254,7 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
         _passwordText.textColor = [UIColor textWhiteColor2];
         _passwordText.tintColor = [UIColor textWhiteColor2];
         _passwordText.textAlignment = NSTextAlignmentCenter;
+        _passwordText.secureTextEntry = YES;
         _passwordText.clearsOnBeginEditing = YES;
         [self.passwordBackground addSubview:_passwordText];
     }
@@ -280,5 +295,19 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
         _nextButton = [[UIBarButtonItem alloc]initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStep)];
     }
     return _nextButton;
+}
+
+- (UIBarButtonItem *)backButton {
+    if (!_backButton) {
+        UIButton * backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        backButton.titleLabel.font = [UIFont systemFontOfSize:17.0];
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 0);
+        [backButton sizeToFit];
+        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _backButton = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+    }
+    return _backButton;
 }
 @end

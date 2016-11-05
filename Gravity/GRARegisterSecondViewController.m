@@ -13,6 +13,7 @@
 #import "GRALocationManager.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
 
 typedef NS_ENUM(NSInteger, GRALocationVerificationResult) {
     GRALocationVerificationNone,
@@ -176,7 +177,8 @@ typedef NS_ENUM(NSInteger, GRALocationVerificationResult) {
 
 - (void)nextStep {
     if (_verificationResult == GRALocationVerificationNone) {
-        NSLog(@"地理位置错误：不在主校区或者东校区！");
+        [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+        [SVProgressHUD showErrorWithStatus:@"地理位置错误：不在主校区或者东校区"];
     } else {
         if (_verificationResult == GRALocationVerificationMain)
             [_signupParameters setObject:@"middle" forKey:@"region"];

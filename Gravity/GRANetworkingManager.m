@@ -45,9 +45,9 @@ static NSString * uploadAvatarURL = @"/backend/api/misc/avatar";
     return _sessionManager;
 }
 
-- (AFHTTPRequestSerializer *)requestSerializer{
+- (AFJSONRequestSerializer *)requestSerializer{
     if(!_requestSerializer){
-        _requestSerializer = [AFHTTPRequestSerializer serializer];
+        _requestSerializer = [AFJSONRequestSerializer serializer];
     }
     return _requestSerializer;
 }

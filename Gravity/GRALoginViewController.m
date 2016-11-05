@@ -9,7 +9,11 @@
 #import "GRALoginViewController.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
+
 #import "GRANetworkingManager.h"
+
+#import "GRAMainPageViewController.h"
 
 @interface GRALoginViewController()<UITextFieldDelegate>
 @property (nonatomic, strong) UIImageView * planetIconView;
@@ -21,6 +25,7 @@
 @property (nonatomic, strong) UITextField * passwordText;
 @property (nonatomic, strong) UIButton * loginButton;
 @property (nonatomic, strong) UIButton * forgetButton;
+@property (nonatomic, strong) UIBarButtonItem * backButton;
 @end
 
 @implementation GRALoginViewController
@@ -30,7 +35,15 @@ static NSString * loginURL = @"/backend/api/user/signin";
     [self basicConfiguration];
     [self methodConfiguration];
     [self addConstraints];
+    [self addNavigationItems];
 }
+
+- (void)addNavigationItems {
+    UIBarButtonItem * negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width = -4.0;
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer, self.backButton];
+}
+
 #pragma mark UI配置
 - (void)basicConfiguration{
     self.view.backgroundColor = [UIColor backGroundColor];
@@ -38,6 +51,7 @@ static NSString * loginURL = @"/backend/api/user/signin";
     [self.navigationController.navigationBar setBarTintColor:[UIColor backGroundColor]];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setTintColor:[UIColor textWhiteColor2]];
     [self setTitle:@"登录"];
 }
 
@@ -107,13 +121,35 @@ static NSString * loginURL = @"/backend/api/user/signin";
     [self.navigationController showViewController:retrievePassword sender:self];
 }
 
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 - (void)login{
     NSDictionary * parameters = @{
                                   @"phone": self.phoneText.text,
                                   @"password": self.passwordText.text
                                   };
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:loginURL andParameters:parameters completionHandler:^(NSDictionary * responseJSON) {
-        
+        if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
+            NSLog(@"%@", responseJSON);
+            NSNumber * user_id = responseJSON[@"data"][@"id"];
+            [[NSUserDefaults standardUserDefaults] setInteger:[user_id integerValue] forKey:@"id"];
+            [SVProgressHUD setMinimumDismissTimeInterval:0.5];
+            [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
+            
+            GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
+            dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
+            dispatch_queue_t mainQueue = dispatch_get_main_queue();
+            dispatch_after(delay, mainQueue, ^(void){
+                [self.navigationController pushViewController:main animated:YES];
+            });
+        } else {
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"登陆失败"];
+        }
     }];
 }
 
@@ -209,6 +245,20 @@ static NSString * loginURL = @"/backend/api/user/signin";
         [self.passwordBackground addSubview:_passwordText];
     }
     return _passwordText;
+}
+
+- (UIBarButtonItem *)backButton {
+    if (!_backButton) {
+        UIButton * backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        backButton.titleLabel.font = [UIFont systemFontOfSize:17.0];
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 0);
+        [backButton sizeToFit];
+        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _backButton = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+    }
+    return _backButton;
 }
 
 - (UIButton *)loginButton {

@@ -125,7 +125,9 @@ static NSString * uploadURL = @"/backend/api/user/position";
 - (void)prepareProcessingWithLocation:(CLLocation *)location andAreaNumber:(NSInteger)area_num {
     switch (_locationMode) {
         case GRALocationForegroundMode:
-            [self updateLocation:@[[self dictionaryWithLocation:location andAreaNumber:area_num]]];
+            [self updateLocation:@[[self dictionaryWithLocation:location andAreaNumber:area_num]] withCompletionHandler:^(BOOL is_success) {
+                
+            }];
             break;
         case GRALocationBackgroundMode:
             [self saveLocation:location andAreaNumber:area_num];
@@ -150,15 +152,18 @@ static NSString * uploadURL = @"/backend/api/user/position";
     [realm commitWriteTransaction];
 }
 
-- (void)updateLocation:(NSArray *)locations{
+- (void)updateLocation:(NSArray *)locations withCompletionHandler:(void(^)(BOOL is_success))handler {
     if ([locations isKindOfClass:[NSArray class]] && locations.count > 0) {
         NSDictionary * paramaters = @{
                                       @"datas":locations
                                       };
         NSLog(@"%@", paramaters);
         [[GRANetworkingManager sharedManager]requestWithApplendixURL:uploadURL andParameters:paramaters completionHandler:^(NSDictionary * responseJSON) {
-            if ([responseJSON[@"error"] isEqualToString:@"ok"])
+            if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
                 NSLog(@"location update success");
+                handler(YES);
+            }
+            handler(NO);
         }];
     }
 }
@@ -180,16 +185,23 @@ static NSString * uploadURL = @"/backend/api/user/position";
     RLMResults * results = [Position objectsWhere:assert];
     NSMutableArray * locations = [NSMutableArray array];
     
-    RLMRealm * realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    
     for (Position * positon in results) {
         [locations addObject:[positon convertedToDictionary]];
-        [realm deleteObject:positon];
     }
     
-    [realm commitWriteTransaction];
-    [self updateLocation:[NSArray arrayWithArray:locations]];
+    [self updateLocation:[NSArray arrayWithArray:locations]withCompletionHandler:^(BOOL is_success) {
+        if (is_success) {
+            RLMRealm * realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            
+            for (Position * positon in results) {
+                [locations addObject:[positon convertedToDictionary]];
+                [realm deleteObject:positon];
+            }
+            
+            [realm commitWriteTransaction];
+        }
+    }];
 }
 
 - (void)setLocationMode:(GRALocationMode)locationMode {

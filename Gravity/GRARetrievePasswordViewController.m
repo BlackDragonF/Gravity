@@ -9,7 +9,10 @@
 #import "GRARetrievePasswordViewController.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
+
 #import "GRANetworkingManager.h"
+
 
 @interface GRARetrievePasswordViewController()<UITextFieldDelegate> {
     NSDictionary * _resendButtonAttributedTitle;
@@ -132,7 +135,8 @@ static NSString * passwordURL = @"/backend/api/user/password";
             self.resendButton.userInteractionEnabled = NO;
             _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeCount) userInfo:nil repeats:YES];
         } else if ([responseJSON[@"error"] isEqualToString:@"phone:not_exists"]){
-            NSLog(@"重置密码：手机号不存在！");
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"手机号码不存在"];
         }
     }];
 }
@@ -153,13 +157,24 @@ static NSString * passwordURL = @"/backend/api/user/password";
                                                   };
             [[GRANetworkingManager sharedManager]requestWithApplendixURL:passwordURL andParameters:passwordParameters completionHandler:^(NSDictionary * responseJSON2) {
                 if ([responseJSON2[@"error"] isEqualToString:@"ok"]){
-                    NSLog(@"密码更新成功！");
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [SVProgressHUD setMinimumDismissTimeInterval:0.5];
+                    [SVProgressHUD showSuccessWithStatus:@"密码修改成功"];
+                    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
+                    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+                    dispatch_after(delay, mainQueue, ^(void){
+                        [self.navigationController popViewControllerAnimated:YES];
+                    });
                 }
                 self.confirmButton.userInteractionEnabled = YES;
             }];
+            self.confirmButton.userInteractionEnabled = YES;
         } else if ([responseJSON[@"error"] isEqualToString:@"verify:failed"]) {
-            NSLog(@"验证手机：失败！");
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"手机验证失败"];
+            self.confirmButton.userInteractionEnabled = YES;
+        } else {
+            [SVProgressHUD setMinimumDismissTimeInterval:0.75];
+            [SVProgressHUD showErrorWithStatus:@"重置密码失败"];
             self.confirmButton.userInteractionEnabled = YES;
         }
     }];
@@ -260,6 +275,7 @@ static NSString * passwordURL = @"/backend/api/user/password";
         _passwordText.textColor = [UIColor textWhiteColor2];
         _passwordText.tintColor = [UIColor textWhiteColor2];
         _passwordText.textAlignment = NSTextAlignmentCenter;
+        _passwordText.secureTextEntry = YES;
         _passwordText.clearsOnBeginEditing = YES;
         _passwordText.returnKeyType = UIReturnKeyDone;
         [self.passwordBackground addSubview:_passwordText];

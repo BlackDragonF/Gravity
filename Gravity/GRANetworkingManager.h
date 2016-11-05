@@ -14,7 +14,7 @@ typedef void(^responseBlock)(NSDictionary *);
 @interface GRANetworkingManager : NSObject
 
 @property (nonatomic, strong) AFHTTPSessionManager * sessionManager;
-@property (nonatomic, strong) AFHTTPRequestSerializer * requestSerializer;
+@property (nonatomic, strong) AFJSONRequestSerializer * requestSerializer;
 @property (nonatomic, strong) AFJSONResponseSerializer * responseSerializer;
 
 + (instancetype)sharedManager;

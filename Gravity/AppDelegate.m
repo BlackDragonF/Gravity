@@ -25,6 +25,7 @@
 #import "GRACardPageViewController.h"
 #import "GRAMainPageViewController.h"
 #import "GRAOthersInformationViewController.h"
+#import "GRAStartpageViewController.h"
 
 @interface AppDelegate ()
 
@@ -49,7 +50,6 @@
 //    GRACardPageViewController * cardpage = [[GRACardPageViewController alloc]init];
 //    GRAMainPageViewController * mainpage = [[GRAMainPageViewController alloc]init];
 //    GRAOthersInformationViewController * othersInfo = [[GRAOthersInformationViewController alloc]init];
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"id"];
     [self configureBasicUI];
     [self configureLocationManager];
     [self locationManagerConfiguration:launchOptions];
@@ -68,17 +68,8 @@
 - (void)configureBasicUI {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    GRARegisterFirstViewController * register1 = [[GRARegisterFirstViewController alloc]init];
-    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:register1];
-    [nav.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [nav.navigationBar setShadowImage:[[UIImage alloc]init]];
-    CALayer * layer = nav.navigationBar.layer;
-    layer.masksToBounds = NO;
-    layer.shadowColor = [UIColor blackColor].CGColor;
-    layer.shadowOffset = CGSizeMake(0, 2.5);
-    layer.shadowOpacity = 0.1;
-    layer.shouldRasterize = YES;
-    self.window.rootViewController = nav;
+    GRAStartpageViewController * start = [[GRAStartpageViewController alloc]init];
+    self.window.rootViewController = start;
     [self.window makeKeyAndVisible];
 }
 

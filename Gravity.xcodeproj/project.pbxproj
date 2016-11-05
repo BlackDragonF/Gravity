@@ -31,6 +31,7 @@
 		105827711D0673B7003195A4 /* GRARetrievePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105827701D0673B7003195A4 /* GRARetrievePasswordViewController.m */; };
 		105BC48F1D06E6A200FDD8AC /* GRANetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */; };
 		105BC4941D071F9900FDD8AC /* GRARegisterFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */; };
+		107BA8BF1DCDC15D003A28A2 /* GRAStartpageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 107BA8BE1DCDC15D003A28A2 /* GRAStartpageViewController.m */; };
 		1089BD0E1D32715000487582 /* GRAInviteFriendsSideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */; };
 		1089BD111D32784300487582 /* GRAInviteFriendsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD101D32784300487582 /* GRAInviteFriendsButton.m */; };
 		1089BD171D33641000487582 /* GRACardPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD161D33641000487582 /* GRACardPageViewController.m */; };
@@ -135,6 +136,8 @@
 		105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRANetworkingManager.m; sourceTree = "<group>"; };
 		105BC4921D071F9900FDD8AC /* GRARegisterFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterFirstViewController.h; sourceTree = "<group>"; };
 		105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterFirstViewController.m; sourceTree = "<group>"; };
+		107BA8BD1DCDC15D003A28A2 /* GRAStartpageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAStartpageViewController.h; sourceTree = "<group>"; };
+		107BA8BE1DCDC15D003A28A2 /* GRAStartpageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAStartpageViewController.m; sourceTree = "<group>"; };
 		1089BD0C1D32715000487582 /* GRAInviteFriendsSideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsSideView.h; sourceTree = "<group>"; };
 		1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAInviteFriendsSideView.m; sourceTree = "<group>"; };
 		1089BD0F1D32784300487582 /* GRAInviteFriendsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsButton.h; sourceTree = "<group>"; };
@@ -474,6 +477,15 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		107BA8BC1DCDC134003A28A2 /* Startpage */ = {
+			isa = PBXGroup;
+			children = (
+				107BA8BD1DCDC15D003A28A2 /* GRAStartpageViewController.h */,
+				107BA8BE1DCDC15D003A28A2 /* GRAStartpageViewController.m */,
+			);
+			name = Startpage;
+			sourceTree = "<group>";
+		};
 		1089BD121D33618E00487582 /* Mainpage */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,6 +773,7 @@
 				10C4FAA31D07D7690083A312 /* Location */,
 				105BC4901D06E8EC00FDD8AC /* Network */,
 				100D558D1D2A84640068B19E /* Avatar */,
+				107BA8BC1DCDC134003A28A2 /* Startpage */,
 				10E68B771D072D87001EB905 /* Signin */,
 				10E68B781D072D9C001EB905 /* Signup */,
 				1055CA961D2E13EE000C10EE /* Homepage */,
@@ -1058,6 +1071,7 @@
 				10E852231D042C7500A97F42 /* main.m in Sources */,
 				1089BD361D35162200487582 /* GRAOthersBasicInformationCell.m in Sources */,
 				1089BD281D3394A800487582 /* GRACardPageCell.m in Sources */,
+				107BA8BF1DCDC15D003A28A2 /* GRAStartpageViewController.m in Sources */,
 				1089BD1F1D33703900487582 /* GRACardPageSectionHeaderView.m in Sources */,
 				10C4FAA61D0815360083A312 /* GRARegisterThirdViewController.m in Sources */,
 				10F7F0EB1D32631200C66338 /* GRAInviteFriendsMainView.m in Sources */,

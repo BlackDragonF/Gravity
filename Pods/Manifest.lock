@@ -19,19 +19,22 @@ PODS:
   - Realm (2.0.3):
     - Realm/Headers (= 2.0.3)
   - Realm/Headers (2.0.3)
+  - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - JZLocationConverter
   - Masonry
   - Realm
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   JZLocationConverter: 3d816bee6484aed9c155a6045a02ce444833e2f0
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 90260d3161398866ba3348000cc2b50f19beb5ca
+PODFILE CHECKSUM: 7f8726a61287559bfcbce310452d4102fdb4ee3b
 
 COCOAPODS: 1.1.0.beta.1

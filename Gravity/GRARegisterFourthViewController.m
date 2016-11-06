@@ -15,6 +15,7 @@
 #import "GRARegisterRestCell.h"
 
 #import "GRANetworkingManager.h"
+#import "GRALocationManager.h"
 
 #import "GRAMainPageViewController.h"
 
@@ -54,6 +55,17 @@ static NSString * restIdentifier = @"rest";
     [self basicConfiguration];
     [self tableView];
     [self addNavigationItems];
+}
+
+- (void)configureNavitionController:(UINavigationController *)navigation {
+    [navigation.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navigation.navigationBar setShadowImage:[[UIImage alloc]init]];
+    CALayer * layer = navigation.navigationBar.layer;
+    layer.masksToBounds = NO;
+    layer.shadowColor = [UIColor blackColor].CGColor;
+    layer.shadowOffset = CGSizeMake(0, 2.5);
+    layer.shadowOpacity = 0.1;
+    layer.shouldRasterize = YES;
 }
 #pragma mark UI配置
 - (void)basicConfiguration{
@@ -167,16 +179,22 @@ static NSString * restIdentifier = @"rest";
     [_signupParameters setObject:[NSNumber numberWithDouble: [NSDate date].timeIntervalSince1970] forKey:@"timestamp"];
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupURL andParameters:_signupParameters completionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
             NSDictionary * user = responseJSON[@"data"][@"user"];
             [[NSUserDefaults standardUserDefaults] setInteger:[user[@"id"] integerValue] forKey:@"id"];
             [SVProgressHUD setMinimumDismissTimeInterval:0.5];
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             
             GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
+            UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:main];
+            [self configureNavitionController:navigation];
+            [[GRALocationManager sharedManager]setLocationMode:GRALocationForegroundMode];
             dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
             dispatch_queue_t mainQueue = dispatch_get_main_queue();
             dispatch_after(delay, mainQueue, ^(void){
-                [self.navigationController pushViewController:main animated:YES];
+                [self presentViewController:navigation animated:YES completion:^{
+                    
+                }];
             });
         }
     }];

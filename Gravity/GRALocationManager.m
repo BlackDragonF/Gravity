@@ -207,6 +207,7 @@ static NSString * uploadURL = @"/backend/api/user/position";
 - (void)setLocationMode:(GRALocationMode)locationMode {
     switch (locationMode) {
         case GRALocationDefaultMode:
+            [self stopUpdatingLocation];
             break;
         case GRALocationForegroundMode:
             if (_locationMode != GRALocationForegroundMode) {

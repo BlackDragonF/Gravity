@@ -9,22 +9,7 @@
 #import "AppDelegate.h"
 #import <UserNotifications/UserNotifications.h>
 
-#import "GRALoginViewController.h"
-#import "GRARegisterFirstViewController.h"
-#import "GRARegisterSecondViewController.h"
-#import "GRARegisterThirdViewController.h"
-#import "GRARegisterFourthViewController.h"
-#import "GRAHomePageViewController.h"
 #import "GRALocationManager.h"
-#import "GRASignatureViewController.h"
-#import "GRABasicInformationViewController.h"
-#import "GRAGeneralSettingsViewController.h"
-#import "GRANotificationPageViewController.h"
-#import "GRASystemWingmanViewController.h"
-#import "GRAInviteFriendsViewController.h"
-#import "GRACardPageViewController.h"
-#import "GRAMainPageViewController.h"
-#import "GRAOthersInformationViewController.h"
 #import "GRAStartpageViewController.h"
 
 @interface AppDelegate ()
@@ -35,34 +20,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-//    GRARegisterSecondViewController * register2 = [[GRARegisterSecondViewController alloc]init];
-//    GRARegisterThirdViewController * register3 = [[GRARegisterThirdViewController alloc]init];
-//    GRARegisterFourthViewController * register4 = [[GRARegisterFourthViewController alloc]init];
-//    GRALoginViewController * login = [[GRALoginViewController alloc]init];
-//    GRAHomePageViewController * homepage = [[GRAHomePageViewController alloc]init];
-//    GRASignatureViewController * signature = [[GRASignatureViewController alloc]init];
-//    GRABasicInformationViewController * basicInfo = [[GRABasicInformationViewController alloc]init];
-//    GRAGeneralSettingsViewController * generalSettings = [[GRAGeneralSettingsViewController alloc]init];
-//    GRANotificationPageViewController * notifitaionPage = [[GRANotificationPageViewController alloc]init];
-//    GRASystemWingmanViewController * systemWingman = [[GRASystemWingmanViewController alloc]init];
-//    GRAInviteFriendsViewController * inviteFriends = [[GRAInviteFriendsViewController alloc]init];
-//    GRACardPageViewController * cardpage = [[GRACardPageViewController alloc]init];
-//    GRAMainPageViewController * mainpage = [[GRAMainPageViewController alloc]init];
-//    GRAOthersInformationViewController * othersInfo = [[GRAOthersInformationViewController alloc]init];
     [self configureBasicUI];
     [self configureLocationManager];
     [self locationManagerConfiguration:launchOptions];
-    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
     return YES;
-}
-
-- (void)locationManagerConfiguration:(NSDictionary *)launchOptions {
-    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
-        [[GRALocationManager sharedManager] requestAlwaysAuthorization];
-        [[GRALocationManager sharedManager] setAllowsBackgroundLocationUpdates:YES];
-        [[GRALocationManager sharedManager] setLocationMode:GRALocationBackgroundMode];
-    }
 }
 
 - (void)configureBasicUI {
@@ -75,7 +37,13 @@
 
 - (void)configureLocationManager {
     [[GRALocationManager sharedManager] setAllowsBackgroundLocationUpdates:YES];
-    [[GRALocationManager sharedManager] setLocationMode:GRALocationForegroundMode];
+}
+
+- (void)locationManagerConfiguration:(NSDictionary *)launchOptions {
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
+        [[GRALocationManager sharedManager] requestAlwaysAuthorization];
+        [[GRALocationManager sharedManager] setAllowsBackgroundLocationUpdates:YES];
+    }
 }
 
 - (void)configureNotifications {
@@ -98,11 +66,15 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[GRALocationManager sharedManager] setLocationMode:GRALocationBackgroundMode];
+    BOOL isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:@"login"];
+    if (isLogin)
+        [[GRALocationManager sharedManager] setLocationMode:GRALocationBackgroundMode];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[GRALocationManager sharedManager] setLocationMode:GRALocationForegroundMode];
+    BOOL isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:@"login"];
+    if (isLogin)
+        [[GRALocationManager sharedManager] setLocationMode:GRALocationForegroundMode];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

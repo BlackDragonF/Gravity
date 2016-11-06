@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "SVProgressHUD.h"
 
+#import "GRALocationManager.h"
 #import "GRANetworkingManager.h"
 
 #import "GRAMainPageViewController.h"
@@ -44,6 +45,16 @@ static NSString * loginURL = @"/backend/api/user/signin";
     self.navigationItem.leftBarButtonItems = @[negativeSpacer, self.backButton];
 }
 
+- (void)configureNavitionController:(UINavigationController *)navigation {
+    [navigation.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navigation.navigationBar setShadowImage:[[UIImage alloc]init]];
+    CALayer * layer = navigation.navigationBar.layer;
+    layer.masksToBounds = NO;
+    layer.shadowColor = [UIColor blackColor].CGColor;
+    layer.shadowOffset = CGSizeMake(0, 2.5);
+    layer.shadowOpacity = 0.1;
+    layer.shouldRasterize = YES;
+}
 #pragma mark UI配置
 - (void)basicConfiguration{
     self.view.backgroundColor = [UIColor backGroundColor];
@@ -134,17 +145,22 @@ static NSString * loginURL = @"/backend/api/user/signin";
                                   };
     [[GRANetworkingManager sharedManager]requestWithApplendixURL:loginURL andParameters:parameters completionHandler:^(NSDictionary * responseJSON) {
         if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
-            NSLog(@"%@", responseJSON);
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
             NSNumber * user_id = responseJSON[@"data"][@"id"];
             [[NSUserDefaults standardUserDefaults] setInteger:[user_id integerValue] forKey:@"id"];
             [SVProgressHUD setMinimumDismissTimeInterval:0.5];
             [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
             
             GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
+            UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:main];
+            [self configureNavitionController:navigation];
+            [[GRALocationManager sharedManager]setLocationMode:GRALocationForegroundMode];
             dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
             dispatch_queue_t mainQueue = dispatch_get_main_queue();
             dispatch_after(delay, mainQueue, ^(void){
-                [self.navigationController pushViewController:main animated:YES];
+                [self presentViewController:navigation animated:YES completion:^{
+                    
+                }];
             });
         } else {
             [SVProgressHUD setMinimumDismissTimeInterval:0.75];

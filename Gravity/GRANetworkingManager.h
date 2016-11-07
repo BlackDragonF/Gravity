@@ -18,11 +18,13 @@ typedef void(^responseBlock)(NSDictionary *);
 @property (nonatomic, strong) AFJSONResponseSerializer * responseSerializer;
 
 + (instancetype)sharedManager;
-- (void)requestWithApplendixURL:(NSString *)url
-                  andParameters:(NSDictionary *)parameters
-              completionHandler:(responseBlock)handler;
 
-- (void)uploadAvatar:(UIImage *)avatar
-             forUser:(NSInteger)userID;
-
+- (void)uploadLocation:(NSDictionary *)locationJSON withCompletionHandler:(responseBlock)handler;
+- (void)verifyPhone:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler;
+- (void)requestLogin:(NSDictionary *)userInfo withCompletionHandler:(responseBlock)handler;
+- (void)sendRetrievePasswordSMS:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler;
+- (void)retrievePassword:(NSDictionary *)passwordInfo withCompletionHandler:(responseBlock)handler;
+- (void)sendRegisterSMS:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler;
+- (void)uploadAvatar:(UIImage *)avatar forUser:(NSInteger)userID withCompletionHandler:(responseBlock)handler;
+- (void)requestRegister:(NSDictionary *)userInfo withCompletionHandler:(responseBlock)handler;
 @end

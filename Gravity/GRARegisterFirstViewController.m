@@ -30,8 +30,6 @@
 @end
 
 @implementation GRARegisterFirstViewController
-static NSString * signupSmsURL = @"/backend/api/user/signup_sms";
-static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self basicConfiguration];
@@ -124,7 +122,7 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
 
 - (void)resend{
     self.resendButton.backgroundColor = [UIColor transparentWhiteColor2];
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupSmsURL andParameters:@{@"phone": self.phoneText.text} completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]sendRegisterSMS:@{@"phone": self.phoneText.text} withCompletionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
             _timeCount = 60;
             self.resendButton.userInteractionEnabled = NO;
@@ -142,12 +140,12 @@ static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
                                              @"code": self.verificationText.text,
                                              @"type": @"signup"
                                              };
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:verifyPhoneURL andParameters:verifyPhoneParameters completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]verifyPhone:verifyPhoneParameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
             NSMutableDictionary * signupParameters = [@{
-                                                       @"phone": self.phoneText.text,
-                                                       @"password": self.passwordText.text
-                                                       }mutableCopy];
+                                                        @"phone": self.phoneText.text,
+                                                        @"password": self.passwordText.text
+                                                        }mutableCopy];
             GRARegisterSecondViewController * register2 = [[GRARegisterSecondViewController alloc]initWithSignupParameters:signupParameters];
             [self.navigationController showViewController:register2 sender:self];
         } else if ([responseJSON[@"error"] isEqualToString:@"verify:failed"]) {

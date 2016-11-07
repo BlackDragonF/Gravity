@@ -35,7 +35,6 @@
 @end
 
 @implementation GRARegisterFourthViewController
-static NSString * signupURL = @"/backend/api/user/signup";
 static NSString * restIdentifier = @"rest";
 #pragma mark 初始化
 - (instancetype)initWithSignupParameters:(NSMutableDictionary *)signupParameters andAvatar:(UIImage *)avatar {
@@ -177,7 +176,7 @@ static NSString * restIdentifier = @"rest";
     [_signupParameters setObject:@"single" forKey:@"love_status"];
     [_signupParameters setObject:@"both" forKey:@"prefer_gender"];
     [_signupParameters setObject:[NSNumber numberWithDouble: [NSDate date].timeIntervalSince1970] forKey:@"timestamp"];
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:signupURL andParameters:_signupParameters completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]requestRegister:_signupParameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
             NSDictionary * user = responseJSON[@"data"][@"user"];

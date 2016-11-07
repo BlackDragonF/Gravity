@@ -14,7 +14,15 @@
 
 @implementation GRANetworkingManager
 static NSString * mainURL = @"http://115.159.24.113:8099";
+static NSString * uploadLocationURL = @"/backend/api/user/position";
+static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
+static NSString * loginURL = @"/backend/api/user/signin";
+static NSString * passwordSMSURL = @"/backend/api/user/password_sms";
+static NSString * passwordURL = @"/backend/api/user/password";
+static NSString * signupSMSURL = @"/backend/api/user/signup_sms";
 static NSString * uploadAvatarURL = @"/backend/api/misc/avatar";
+static NSString * signupURL = @"/backend/api/user/signup";
+
 #pragma mark 基本配置
 + (instancetype)sharedManager{
     static GRANetworkingManager * instance = nil;
@@ -60,18 +68,80 @@ static NSString * uploadAvatarURL = @"/backend/api/misc/avatar";
     return _responseSerializer;
 }
 #pragma mark 具体功能
-- (void)uploadAvatar:(UIImage *)avatar forUser:(NSInteger)userID{
-     _baseURL = [mainURL stringByAppendingString:uploadAvatarURL];
+- (void)uploadLocation:(NSDictionary *)locationJSON withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:uploadLocationURL];
+    [self.sessionManager POST:_baseURL parameters:locationJSON progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"地理位置上传失败:%@", [error localizedDescription]);
+    }];
+}
+
+- (void)verifyPhone:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:verifyPhoneURL];
+    [self.sessionManager POST:_baseURL parameters:phoneInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"认证手机失败:%@", [error localizedDescription]);
+    }];
+}
+
+- (void)requestLogin:(NSDictionary *)userInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:loginURL];
+    [self.sessionManager POST:_baseURL parameters:userInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"登录失败:%@", [error localizedDescription]);
+    }];
+}
+
+- (void)sendRetrievePasswordSMS:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:passwordSMSURL];
+    [self.sessionManager POST:_baseURL parameters:phoneInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"发送重置密码短信失败:%@",[error localizedDescription]);
+    }];
+}
+
+- (void)retrievePassword:(NSDictionary *)passwordInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:passwordURL];
+    [self.sessionManager POST:_baseURL parameters:passwordInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"重置密码失败:%@", [error localizedDescription]);
+    }];
+}
+
+- (void)sendRegisterSMS:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:signupSMSURL];
+    [self.sessionManager POST:_baseURL parameters:phoneInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"发送注册短信失败:%@", [error localizedDescription]);
+    }];
+}
+
+- (void)uploadAvatar:(UIImage *)avatar forUser:(NSInteger)userID withCompletionHandler:(responseBlock)handler{
+    _baseURL = [mainURL stringByAppendingString:uploadAvatarURL];
     NSString * fileName = [NSString stringWithFormat:@"avatar-%ld-%ld.png", (long)userID, (long)[[NSDate date] timeIntervalSince1970]];
     [self.sessionManager POST:_baseURL parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFormData:[fileName dataUsingEncoding:NSUTF8StringEncoding] name:@"filename"];
-//        [formData appendPartWithFileData:UIImagePNGRepresentation(avatar) name:@"file" fileName:fileName mimeType:@"image/png"];
+        //        [formData appendPartWithFileData:UIImagePNGRepresentation(avatar) name:@"file" fileName:fileName mimeType:@"image/png"];
         [formData appendPartWithFormData:UIImagePNGRepresentation(avatar) name:@"file"];
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
+        if (handler) handler((NSDictionary *)responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", [error localizedDescription]);
     }];
 }
 
+- (void)requestRegister:(NSDictionary *)userInfo withCompletionHandler:(responseBlock)handler {
+    _baseURL = [mainURL stringByAppendingString:signupURL];
+    [self.sessionManager POST:_baseURL parameters:userInfo progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (handler) handler((NSDictionary *)responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"注册失败:%@",  [error localizedDescription]);
+    }];
+}
 @end

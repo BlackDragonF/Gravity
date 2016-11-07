@@ -32,9 +32,6 @@
 @end
 
 @implementation GRARetrievePasswordViewController
-static NSString * passwordSmsURL = @"/backend/api/user/password_sms";
-static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
-static NSString * passwordURL = @"/backend/api/user/password";
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self basicConfiguration];
@@ -129,7 +126,7 @@ static NSString * passwordURL = @"/backend/api/user/password";
 
 - (void)resend{
     self.resendButton.backgroundColor = [UIColor transparentWhiteColor2];
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:passwordSmsURL andParameters:@{@"phone": self.phoneText.text} completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]sendRetrievePasswordSMS:@{@"phone": self.phoneText.text} withCompletionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
             _timeCount = 60;
             self.resendButton.userInteractionEnabled = NO;
@@ -148,14 +145,14 @@ static NSString * passwordURL = @"/backend/api/user/password";
                                              @"code": self.verificationText.text,
                                              @"type": @"password"
                                              };
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:verifyPhoneURL andParameters:verifyPhoneParameters completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]verifyPhone:verifyPhoneParameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
             NSDictionary * passwordParameters = @{
                                                   @"phone": self.phoneText.text,
                                                   @"code": self.verificationText.text,
                                                   @"password": self.passwordText.text
                                                   };
-            [[GRANetworkingManager sharedManager]requestWithApplendixURL:passwordURL andParameters:passwordParameters completionHandler:^(NSDictionary * responseJSON2) {
+            [[GRANetworkingManager sharedManager]retrievePassword:passwordParameters withCompletionHandler:^(NSDictionary * responseJSON2) {
                 if ([responseJSON2[@"error"] isEqualToString:@"ok"]){
                     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
                     [SVProgressHUD showSuccessWithStatus:@"密码修改成功"];

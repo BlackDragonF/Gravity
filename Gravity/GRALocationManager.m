@@ -37,7 +37,6 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
 @end
 
 @implementation GRALocationManager
-static NSString * uploadURL = @"/backend/api/user/position";
 
 //单例
 + (instancetype)sharedManager{
@@ -154,11 +153,9 @@ static NSString * uploadURL = @"/backend/api/user/position";
 
 - (void)updateLocation:(NSArray *)locations withCompletionHandler:(void(^)(BOOL is_success))handler {
     if ([locations isKindOfClass:[NSArray class]] && locations.count > 0) {
-        NSDictionary * paramaters = @{
-                                      @"datas":locations
-                                      };
-        NSLog(@"%@", paramaters);
-        [[GRANetworkingManager sharedManager]requestWithApplendixURL:uploadURL andParameters:paramaters completionHandler:^(NSDictionary * responseJSON) {
+        NSDictionary * paramaters = @{@"datas":locations};
+       
+        [[GRANetworkingManager sharedManager]uploadLocation:paramaters withCompletionHandler:^(NSDictionary * responseJSON) {
             if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
                 NSLog(@"location update success");
                 handler(YES);

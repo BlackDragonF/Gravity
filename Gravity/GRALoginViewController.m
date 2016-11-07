@@ -30,7 +30,6 @@
 @end
 
 @implementation GRALoginViewController
-static NSString * loginURL = @"/backend/api/user/signin";
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self basicConfiguration];
@@ -143,7 +142,7 @@ static NSString * loginURL = @"/backend/api/user/signin";
                                   @"phone": self.phoneText.text,
                                   @"password": self.passwordText.text
                                   };
-    [[GRANetworkingManager sharedManager]requestWithApplendixURL:loginURL andParameters:parameters completionHandler:^(NSDictionary * responseJSON) {
+    [[GRANetworkingManager sharedManager]requestLogin:parameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
             NSNumber * user_id = responseJSON[@"data"][@"id"];

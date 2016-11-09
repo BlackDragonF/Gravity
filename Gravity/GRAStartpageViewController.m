@@ -28,6 +28,7 @@
     [self basicConfiguration];
     [self methodConfiguration];
     [self addConstraints];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,28 +140,13 @@
 
 - (void)signin {
     GRALoginViewController * login = [[GRALoginViewController alloc]init];
-    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:login];
-    [self configureNavitionController:navigation];
-    [self presentViewController:navigation animated:YES completion:^{
-    }];
+    [self.navigationController pushViewController:login animated:YES];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)signup {
     GRARegisterFirstViewController * register1 = [[GRARegisterFirstViewController alloc]init];
-    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:register1];
-    [self configureNavitionController:navigation];
-    [self presentViewController:navigation animated:YES completion:^{
-    }];
-}
-
-- (void)configureNavitionController:(UINavigationController *)navigation {
-    [navigation.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [navigation.navigationBar setShadowImage:[[UIImage alloc]init]];
-    CALayer * layer = navigation.navigationBar.layer;
-    layer.masksToBounds = NO;
-    layer.shadowColor = [UIColor blackColor].CGColor;
-    layer.shadowOffset = CGSizeMake(0, 2.5);
-    layer.shadowOpacity = 0.1;
-    layer.shouldRasterize = YES;
+    [self.navigationController pushViewController:register1 animated:YES];
+    self.navigationController.navigationBarHidden = NO;
 }
 @end

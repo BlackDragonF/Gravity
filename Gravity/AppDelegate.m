@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import <UserNotifications/UserNotifications.h>
 
+#import "GRAAppSettings.h"
 #import "GRALocationManager.h"
+
 #import "GRAStartpageViewController.h"
+#import "GRAMainPageViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,19 +23,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self configureBasicUI];
     [self configureLocationManager];
     [self locationManagerConfiguration:launchOptions];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
+    [self configureBasicUI];
     return YES;
-}
-
-- (void)configureBasicUI {
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    GRAStartpageViewController * start = [[GRAStartpageViewController alloc]init];
-    self.window.rootViewController = start;
-    [self.window makeKeyAndVisible];
 }
 
 - (void)configureLocationManager {
@@ -44,6 +38,36 @@
         [[GRALocationManager sharedManager] requestAlwaysAuthorization];
         [[GRALocationManager sharedManager] setAllowsBackgroundLocationUpdates:YES];
     }
+}
+
+- (void)configureBasicUI {
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    UINavigationController * navigation;
+    if ([GRAAppSettings sharedSettings].isLogin) {
+        GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
+        [[GRALocationManager sharedManager]setLocationMode:GRALocationForegroundMode];
+        navigation = [[UINavigationController alloc]initWithRootViewController:main];
+
+    } else {
+        GRAStartpageViewController * start = [[GRAStartpageViewController alloc]init];
+        navigation = [[UINavigationController alloc]initWithRootViewController:start];
+
+    }
+    [self configureNavitionController:navigation];
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+}
+
+- (void)configureNavitionController:(UINavigationController *)navigation {
+    [navigation.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navigation.navigationBar setShadowImage:[[UIImage alloc]init]];
+    CALayer * layer = navigation.navigationBar.layer;
+    layer.masksToBounds = NO;
+    layer.shadowColor = [UIColor blackColor].CGColor;
+    layer.shadowOffset = CGSizeMake(0, 2.5);
+    layer.shadowOpacity = 0.1;
+    layer.shouldRasterize = YES;
 }
 
 - (void)configureNotifications {
@@ -66,15 +90,15 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    BOOL isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:@"login"];
-    if (isLogin)
+    if ([GRAAppSettings sharedSettings].isLogin) {
         [[GRALocationManager sharedManager] setLocationMode:GRALocationBackgroundMode];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    BOOL isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:@"login"];
-    if (isLogin)
+    if ([GRAAppSettings sharedSettings].isLogin) {
         [[GRALocationManager sharedManager] setLocationMode:GRALocationForegroundMode];
+    }
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

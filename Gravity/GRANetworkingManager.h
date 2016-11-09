@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
-typedef void(^responseBlock)(NSDictionary *);
+typedef void(^responseBlock)(NSDictionary * responseJSON);
 
 @interface GRANetworkingManager : NSObject
 
@@ -27,4 +27,5 @@ typedef void(^responseBlock)(NSDictionary *);
 - (void)sendRegisterSMS:(NSDictionary *)phoneInfo withCompletionHandler:(responseBlock)handler;
 - (void)uploadAvatar:(UIImage *)avatar forUser:(NSInteger)userID withCompletionHandler:(responseBlock)handler;
 - (void)requestRegister:(NSDictionary *)userInfo withCompletionHandler:(responseBlock)handler;
+
 @end

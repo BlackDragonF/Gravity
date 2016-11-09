@@ -11,6 +11,10 @@
 #import "GRAHomePageSectionHeaderView.h"
 #import "GRAGeneralSettingsCell.h"
 
+#import "GRAStartpageViewController.h"
+
+#import "GRAAppSettings.h"
+
 #import "ColorMacro.h"
 
 @interface GRAGeneralSettingsViewController()<UITableViewDelegate, UITableViewDataSource>{
@@ -37,6 +41,17 @@ static NSString * generalSettingsIdentifier = @"generalSettings";
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor;
 }
+
+- (void)configureNavitionController:(UINavigationController *)navigation {
+    [navigation.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navigation.navigationBar setShadowImage:[[UIImage alloc]init]];
+    CALayer * layer = navigation.navigationBar.layer;
+    layer.masksToBounds = NO;
+    layer.shadowColor = [UIColor blackColor].CGColor;
+    layer.shadowOffset = CGSizeMake(0, 2.5);
+    layer.shadowOpacity = 0.1;
+    layer.shouldRasterize = YES;
+}
 #pragma mark 默认配置
 #warning Image to be replaced
 - (void)defaultConfiguration {
@@ -49,6 +64,10 @@ static NSString * generalSettingsIdentifier = @"generalSettings";
                    @"name":@"关于我们",
                    @"content":@[@{@"title":@"用户协议", @"image":[UIImage imageNamed:@"more"]}, @{@"title":@"关于我们", @"image":[UIImage imageNamed:@"more"]}],
                    },
+               @{
+                   @"name":@"",
+                   @"content":@[@{@"title":@"退出登陆", @"image":[UIImage imageNamed:@"more"]}],
+                   }
                ];
 }
 #pragma mark 基本配置
@@ -117,6 +136,17 @@ static NSString * generalSettingsIdentifier = @"generalSettings";
         cell.separator = NO;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        [[GRAAppSettings sharedSettings]setLogin:NO];
+        GRAStartpageViewController * start = [[GRAStartpageViewController alloc]init];
+        UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:start];
+        [self configureNavitionController:navigation];
+        [UIApplication sharedApplication].keyWindow.rootViewController = navigation;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark 懒加载方法群
 - (UITableView *)tableView {

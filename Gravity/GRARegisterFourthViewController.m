@@ -15,7 +15,7 @@
 #import "GRARegisterRestCell.h"
 
 #import "GRANetworkingManager.h"
-#import "GRALocationManager.h"
+#import "GRAAppSettings.h"
 
 #import "GRAMainPageViewController.h"
 
@@ -178,22 +178,20 @@ static NSString * restIdentifier = @"rest";
     [_signupParameters setObject:[NSNumber numberWithDouble: [NSDate date].timeIntervalSince1970] forKey:@"timestamp"];
     [[GRANetworkingManager sharedManager]requestRegister:_signupParameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if([responseJSON[@"error"] isEqualToString:@"ok"]){
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
+            
+            [[GRAAppSettings sharedSettings]setLogin:YES];
             NSDictionary * user = responseJSON[@"data"][@"user"];
-            [[NSUserDefaults standardUserDefaults] setInteger:[user[@"id"] integerValue] forKey:@"id"];
+            [[GRAAppSettings sharedSettings]setUserID:[user[@"id"] integerValue]];
             [SVProgressHUD setMinimumDismissTimeInterval:0.5];
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             
             GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
             UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:main];
             [self configureNavitionController:navigation];
-            [[GRALocationManager sharedManager]setLocationMode:GRALocationForegroundMode];
             dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
             dispatch_queue_t mainQueue = dispatch_get_main_queue();
             dispatch_after(delay, mainQueue, ^(void){
-                [self presentViewController:navigation animated:YES completion:^{
-                    
-                }];
+                [UIApplication sharedApplication].keyWindow.rootViewController = navigation;
             });
         }
     }];

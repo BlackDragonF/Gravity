@@ -31,6 +31,7 @@
 		105827711D0673B7003195A4 /* GRARetrievePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105827701D0673B7003195A4 /* GRARetrievePasswordViewController.m */; };
 		105BC48F1D06E6A200FDD8AC /* GRANetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */; };
 		105BC4941D071F9900FDD8AC /* GRARegisterFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */; };
+		106DDE801DD31D4B0015EADA /* GRAAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 106DDE7F1DD31D4B0015EADA /* GRAAppSettings.m */; };
 		107BA8BF1DCDC15D003A28A2 /* GRAStartpageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 107BA8BE1DCDC15D003A28A2 /* GRAStartpageViewController.m */; };
 		1089BD0E1D32715000487582 /* GRAInviteFriendsSideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD0D1D32715000487582 /* GRAInviteFriendsSideView.m */; };
 		1089BD111D32784300487582 /* GRAInviteFriendsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1089BD101D32784300487582 /* GRAInviteFriendsButton.m */; };
@@ -136,6 +137,8 @@
 		105BC48E1D06E6A200FDD8AC /* GRANetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRANetworkingManager.m; sourceTree = "<group>"; };
 		105BC4921D071F9900FDD8AC /* GRARegisterFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRARegisterFirstViewController.h; sourceTree = "<group>"; };
 		105BC4931D071F9900FDD8AC /* GRARegisterFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRARegisterFirstViewController.m; sourceTree = "<group>"; };
+		106DDE7E1DD31D4B0015EADA /* GRAAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAAppSettings.h; sourceTree = "<group>"; };
+		106DDE7F1DD31D4B0015EADA /* GRAAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAAppSettings.m; sourceTree = "<group>"; };
 		107BA8BD1DCDC15D003A28A2 /* GRAStartpageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAStartpageViewController.h; sourceTree = "<group>"; };
 		107BA8BE1DCDC15D003A28A2 /* GRAStartpageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAStartpageViewController.m; sourceTree = "<group>"; };
 		1089BD0C1D32715000487582 /* GRAInviteFriendsSideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAInviteFriendsSideView.h; sourceTree = "<group>"; };
@@ -477,6 +480,47 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		106DDE7A1DD319520015EADA /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				100D558D1D2A84640068B19E /* Avatar */,
+			);
+			name = Assistant;
+			sourceTree = "<group>";
+		};
+		106DDE7B1DD319600015EADA /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				106DDE7D1DD31D210015EADA /* AppSettings */,
+				10C4FAA31D07D7690083A312 /* Location */,
+				105BC4901D06E8EC00FDD8AC /* Network */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
+		106DDE7C1DD319750015EADA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				107BA8BC1DCDC134003A28A2 /* Startpage */,
+				10E68B771D072D87001EB905 /* Signin */,
+				10E68B781D072D9C001EB905 /* Signup */,
+				1055CA961D2E13EE000C10EE /* Homepage */,
+				1089BD121D33618E00487582 /* Mainpage */,
+				1089BD301D35124E00487582 /* OthersInformation */,
+				10290B5B1D31027F00C70EE1 /* NotificationPage */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		106DDE7D1DD31D210015EADA /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				106DDE7E1DD31D4B0015EADA /* GRAAppSettings.h */,
+				106DDE7F1DD31D4B0015EADA /* GRAAppSettings.m */,
+			);
+			name = AppSettings;
+			sourceTree = "<group>";
+		};
 		107BA8BC1DCDC134003A28A2 /* Startpage */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,17 +813,10 @@
 			children = (
 				10E852241D042C7500A97F42 /* AppDelegate.h */,
 				10E852251D042C7500A97F42 /* AppDelegate.m */,
+				106DDE7B1DD319600015EADA /* Singleton */,
+				106DDE7A1DD319520015EADA /* Assistant */,
 				1049BB281DCA11DE00D02A67 /* Database */,
-				10C4FAA31D07D7690083A312 /* Location */,
-				105BC4901D06E8EC00FDD8AC /* Network */,
-				100D558D1D2A84640068B19E /* Avatar */,
-				107BA8BC1DCDC134003A28A2 /* Startpage */,
-				10E68B771D072D87001EB905 /* Signin */,
-				10E68B781D072D9C001EB905 /* Signup */,
-				1055CA961D2E13EE000C10EE /* Homepage */,
-				1089BD121D33618E00487582 /* Mainpage */,
-				1089BD301D35124E00487582 /* OthersInformation */,
-				10290B5B1D31027F00C70EE1 /* NotificationPage */,
+				106DDE7C1DD319750015EADA /* UI */,
 				10E852541D0430BE00A97F42 /* ColorMacro.h */,
 				10E8522D1D042C7500A97F42 /* Assets.xcassets */,
 				10E8522F1D042C7500A97F42 /* LaunchScreen.storyboard */,
@@ -1055,6 +1092,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				100D55941D2A84780068B19E /* GRAAvatarEditerController.m in Sources */,
+				106DDE801DD31D4B0015EADA /* GRAAppSettings.m in Sources */,
 				1089BD2C1D34B39300487582 /* GRACardPageTabbar.m in Sources */,
 				1055CA9E1D2E145B000C10EE /* GRAHomepageHeaderView.m in Sources */,
 				1055CAB51D2E875E000C10EE /* GRABasicInformationCell.m in Sources */,

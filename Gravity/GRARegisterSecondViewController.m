@@ -139,26 +139,27 @@ typedef NS_ENUM(NSInteger, GRALocationVerificationResult) {
 //    CLLocationCoordinate2D convertedCoordinate = [JZLocationConverter gcj02ToWgs84:userLocation.location.coordinate];
     CLLocationCoordinate2D convertedCoordinate = userLocation.location.coordinate;
     CLLocation * location = [[CLLocation alloc]initWithLatitude:userLocation.location.coordinate.latitude longitude:userLocation.location.coordinate.longitude];
-    [[GRALocationManager sharedManager] calculateAreaNumber:location];
-    [[GRALocationManager sharedManager] placemarkWithLocation:location andAreaNumber:[GRALocationManager sharedManager].area_num];
-    [_signupParameters setObject:[NSNumber numberWithInteger: [GRALocationManager sharedManager].area_num] forKey:@"area_num"];
-    [_signupParameters setObject:[GRALocationManager sharedManager].place forKey:@"location_name"];
-    _verificationResult = [self verifyRegionWithCoordinate:convertedCoordinate];
-    switch (_verificationResult) {
-        case GRALocationVerificationNone:
-            _mapView.userLocation.title = @"认证中";
-            _resultLabel.text = @"认证中";
-            break;
-        case GRALocationVerificationEast:
-            
-            _mapView.userLocation.title = @"华中科技大学 东校区";
-            _resultLabel.text = @"华中科技大学 东校区";
-            break;
-        case GRALocationVerificationMain:
-            _mapView.userLocation.title = @"华中科技大学 主校区";
-            _resultLabel.text = @"华中科技大学 主校区";
-            break;
-    }
+    NSInteger area_num = [[GRALocationManager sharedManager]calculateAreaNumber:location];
+    [[GRALocationManager sharedManager]geocoderForRegisterLocation:location withCompletionHandler:^(NSString *placename) {
+        [_signupParameters setObject:[NSNumber numberWithInteger:area_num] forKey:@"area_num"];
+        [_signupParameters setObject:[GRALocationManager sharedManager].place forKey:@"location_name"];
+        _verificationResult = [self verifyRegionWithCoordinate:convertedCoordinate];
+        switch (_verificationResult) {
+            case GRALocationVerificationNone:
+                _mapView.userLocation.title = @"认证中";
+                _resultLabel.text = @"认证中";
+                break;
+            case GRALocationVerificationEast:
+                
+                _mapView.userLocation.title = @"华中科技大学 东校区";
+                _resultLabel.text = @"华中科技大学 东校区";
+                break;
+            case GRALocationVerificationMain:
+                _mapView.userLocation.title = @"华中科技大学 主校区";
+                _resultLabel.text = @"华中科技大学 主校区";
+                break;
+        }
+    }];
 }
 
 - (GRALocationVerificationResult)verifyRegionWithCoordinate:(CLLocationCoordinate2D)coordinate {

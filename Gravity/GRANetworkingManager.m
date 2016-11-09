@@ -13,24 +13,24 @@
 @end
 
 @implementation GRANetworkingManager
-static NSString * mainURL = @"http://115.159.24.113:8099";
-static NSString * uploadLocationURL = @"/backend/api/user/position";
-static NSString * verifyPhoneURL = @"/backend/api/user/verify_phone";
-static NSString * loginURL = @"/backend/api/user/signin";
-static NSString * passwordSMSURL = @"/backend/api/user/password_sms";
-static NSString * passwordURL = @"/backend/api/user/password";
-static NSString * signupSMSURL = @"/backend/api/user/signup_sms";
-static NSString * uploadAvatarURL = @"/backend/api/misc/avatar";
-static NSString * signupURL = @"/backend/api/user/signup";
+static NSString * const mainURL = @"http://115.159.24.113:8099";
+static NSString * const uploadLocationURL = @"/backend/api/user/position";
+static NSString * const verifyPhoneURL = @"/backend/api/user/verify_phone";
+static NSString * const loginURL = @"/backend/api/user/signin";
+static NSString * const passwordSMSURL = @"/backend/api/user/password_sms";
+static NSString * const passwordURL = @"/backend/api/user/password";
+static NSString * const signupSMSURL = @"/backend/api/user/signup_sms";
+static NSString * const uploadAvatarURL = @"/backend/api/misc/avatar";
+static NSString * const signupURL = @"/backend/api/user/signup";
 
 #pragma mark 基本配置
 + (instancetype)sharedManager{
-    static GRANetworkingManager * instance = nil;
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
-        instance = [[GRANetworkingManager alloc]init];
+    static GRANetworkingManager * manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[GRANetworkingManager alloc]init];
     });
-    return instance;
+    return manager;
 }
 
 - (void)requestWithApplendixURL:(NSString *)url andParameters:(NSDictionary *)parameters completionHandler:(responseBlock)handler {

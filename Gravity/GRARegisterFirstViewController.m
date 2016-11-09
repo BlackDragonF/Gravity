@@ -115,9 +115,8 @@
 }
 #pragma mark 交互相关
 - (void)back {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)resend{

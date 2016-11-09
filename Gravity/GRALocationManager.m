@@ -7,8 +7,9 @@
 //
 
 #import "GRALocationManager.h"
+
 #import "GRANetworkingManager.h"
-#import "AFNetworking.h"
+#import "GRAAppSettings.h"
 
 #import "Realm.h"
 #import "Position.h"
@@ -40,12 +41,12 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
 
 //单例
 + (instancetype)sharedManager{
-    static GRALocationManager * instance = nil;
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
-        instance = [[GRALocationManager alloc]init];
+    static GRALocationManager * manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[GRALocationManager alloc]init];
     });
-    return instance;
+    return manager;
 }
 //初始化方法
 - (instancetype)init{
@@ -121,6 +122,17 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
     }];
 }
 
+- (void)geocoderForRegisterLocation:(CLLocation *)location withCompletionHandler:(geocoderHandler)handler {
+    CLGeocoder * geoCoder = [[CLGeocoder alloc]init];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * placemarks, NSError * error) {
+        if (error) {
+            NSLog(@"%@", [error localizedDescription]);
+        } else {
+            handler([NSString stringWithString:[placemarks lastObject].name]);
+        }
+    }];
+}
+
 - (void)prepareProcessingWithLocation:(CLLocation *)location andAreaNumber:(NSInteger)area_num {
     switch (_locationMode) {
         case GRALocationForegroundMode:
@@ -132,14 +144,13 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
             [self saveLocation:location andAreaNumber:area_num];
             break;
         default:
-            NSLog(@"Fetal Error in locationMode!");
             break;
     }
 }
 
 - (void)saveLocation:(CLLocation *)location andAreaNumber:(NSInteger)area_num {
     Position * position = [[Position alloc]init];
-    position.ID = [[NSUserDefaults standardUserDefaults] integerForKey:@"id"];
+    position.ID = [GRAAppSettings sharedSettings].userID;
     position.longitude = location.coordinate.longitude;
     position.latitude = location.coordinate.latitude;
     position.timestamp = location.timestamp.timeIntervalSince1970;
@@ -167,7 +178,7 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
 
 - (NSDictionary *)dictionaryWithLocation:(CLLocation *)location andAreaNumber:(NSInteger)area_num {
     NSDictionary * dict = @{
-                              @"user_id": [NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:@"id"]],
+                              @"user_id": [NSNumber numberWithInteger:[GRAAppSettings sharedSettings].userID],
                               @"longitude": [NSNumber numberWithDouble: location.coordinate.longitude],
                               @"latitude": [NSNumber numberWithDouble:location.coordinate.latitude],
                               @"timestamp": [NSNumber numberWithDouble: location.timestamp.timeIntervalSince1970],
@@ -178,7 +189,7 @@ typedef NS_ENUM(NSInteger, GRALocationRegion) {
 }
 
 - (void)retrieveAndUpdateAllPositions {
-    NSString * assert = [NSString stringWithFormat:@"ID = %ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"id"]];
+    NSString * assert = [NSString stringWithFormat:@"ID = %ld", (long)[GRAAppSettings sharedSettings].userID];
     RLMResults * results = [Position objectsWhere:assert];
     NSMutableArray * locations = [NSMutableArray array];
     

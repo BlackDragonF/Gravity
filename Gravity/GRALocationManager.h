@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger, GRALocationMode) {
     GRALocationBackgroundMode,
 };
 
+typedef void(^geocoderHandler)(NSString * placename);
+
 @interface GRALocationManager : CLLocationManager<CLLocationManagerDelegate>
 @property (nonatomic) GRALocationMode locationMode;
 
@@ -23,5 +25,5 @@ typedef NS_ENUM(NSInteger, GRALocationMode) {
 + (instancetype)sharedManager;
 
 - (NSInteger)calculateAreaNumber:(CLLocation *)location;
-- (void)placemarkWithLocation:(CLLocation *) location andAreaNumber:(NSInteger)area_num;
+- (void)geocoderForRegisterLocation:(CLLocation *)location withCompletionHandler:(geocoderHandler)handler;
 @end

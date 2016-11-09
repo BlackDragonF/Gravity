@@ -11,8 +11,8 @@
 #import "Masonry.h"
 #import "SVProgressHUD.h"
 
-#import "GRALocationManager.h"
 #import "GRANetworkingManager.h"
+#import "GRAAppSettings.h"
 
 #import "GRAMainPageViewController.h"
 
@@ -132,9 +132,8 @@
 }
 
 - (void)back {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)login{
@@ -144,22 +143,20 @@
                                   };
     [[GRANetworkingManager sharedManager]requestLogin:parameters withCompletionHandler:^(NSDictionary * responseJSON) {
         if ([responseJSON[@"error"] isEqualToString:@"ok"]) {
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
+            [[GRAAppSettings sharedSettings]setLogin:YES];
             NSNumber * user_id = responseJSON[@"data"][@"id"];
-            [[NSUserDefaults standardUserDefaults] setInteger:[user_id integerValue] forKey:@"id"];
+            [[GRAAppSettings sharedSettings]setUserID:[user_id integerValue]];
+            
             [SVProgressHUD setMinimumDismissTimeInterval:0.5];
             [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
             
             GRAMainPageViewController * main = [[GRAMainPageViewController alloc]init];
             UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:main];
             [self configureNavitionController:navigation];
-            [[GRALocationManager sharedManager]setLocationMode:GRALocationForegroundMode];
             dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 0.55 * NSEC_PER_SEC);
             dispatch_queue_t mainQueue = dispatch_get_main_queue();
             dispatch_after(delay, mainQueue, ^(void){
-                [self presentViewController:navigation animated:YES completion:^{
-                    
-                }];
+                [UIApplication sharedApplication].keyWindow.rootViewController = navigation;
             });
         } else {
             [SVProgressHUD setMinimumDismissTimeInterval:0.75];
